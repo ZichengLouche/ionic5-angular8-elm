@@ -15,12 +15,8 @@ export class CityPage implements OnInit {
   placeNone: boolean;
   placeHistory: any[];
   historyTitle: boolean;
-  constructor(
-    public router: Router,
-    public route: ActivatedRoute,
-    public appService: AppService,
-    public dataService: DataService,
-    public storageService: LocalStorageService) {
+
+  constructor(public router: Router, public route: ActivatedRoute, public appService: AppService, public dataService: DataService, public storageService: LocalStorageService) {
     this.guessCityId = this.route.snapshot.paramMap.get('id');
     this.guessCity = '';
     this.search = '';
