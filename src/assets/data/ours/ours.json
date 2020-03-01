@@ -1,0 +1,45 @@
+﻿{
+    "totalNumber": 8,
+    "advantageList": [
+        {
+            "imageURL": "assets/data/ours/our-advantages-coach.jpg",
+            "title": "拓展教练",
+            "subtitle": "上百名专业拓展教练、满足各类团建活动"
+        },
+        {
+            "imageURL": "assets/data/ours/our-advantages-head.jpg",
+            "title": "领队执行",
+            "subtitle": "专业的领队、现场执行、保证活动各类供应商完美对接"
+        },
+        {
+            "imageURL": "assets/data/ours/our-advantages-props.jpg",
+            "title": "道具物资",
+            "subtitle": "丰富的拓展道具、满足各类拓展玩法"
+        },
+        {
+            "imageURL": "assets/data/ours/our-advantages-bus.jpg",
+            "title": "大巴车",
+            "subtitle": "3年内大巴车、车况优服务好 "
+        },
+        {
+            "imageURL": "assets/data/ours/our-advantages-photography.jpg",
+            "title": "随团摄影",
+            "subtitle": "专业摄影师、在线照片直播"
+        },
+        {
+            "imageURL": "assets/data/ours/our-advantages-accommodation.jpg",
+            "title": "住宿",
+            "subtitle": "酒店、度假村、民宿、农家院、更多更好选择"
+        },
+        {
+            "imageURL": "assets/data/ours/our-advantages-repast.jpg",
+            "title": "餐饮",
+            "subtitle": "当地特色美食、自助餐饮、烧烤、高端宴席"
+        },
+        {
+            "imageURL": "assets/data/ours/our-advantages-scenic.jpg",
+            "title": "周边景区",
+            "subtitle": "同样的景区、不同的玩法、趣味互动&景区游览"
+        }
+    ]
+}

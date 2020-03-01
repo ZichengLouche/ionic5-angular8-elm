@@ -1,7 +1,8 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { AppService, DataService, LocalStorageService, CartService, ShopService } from '../service';
+import { AppService, DataService, LocalStorageService, CartService, ShopService, TBService } from '../service';
+
 @NgModule({
   imports: [
     CommonModule,
@@ -17,7 +18,8 @@ import { AppService, DataService, LocalStorageService, CartService, ShopService 
     DataService,
     LocalStorageService,
     CartService,
-    ShopService
+    ShopService,
+    TBService
   ]
 })
 export class CoreModule {}

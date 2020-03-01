@@ -1,0 +1,26 @@
+﻿{
+    "totalNumber": 8,
+    "usercaseList": [
+        {
+            "imageURLMaster": "assets/data/customer/tb-theme-usercase-ibm.jpg",
+            "imageURLSlave1": "assets/data/customer/tb-theme-usercase-ibm-s1.jpg",
+            "imageURLSlave2": "assets/data/customer/tb-theme-usercase-ibm-s2.jpg",
+            "name": "IBM丨雁栖湖半日骑行团建",
+            "subtitle": "主题团建"
+        },
+        {
+            "imageURLMaster": "assets/data/customer/tb-travel-usercase-any.jpg",
+            "imageURLSlave1": "assets/data/customer/tb-travel-usercase-any-s1.jpg",
+            "imageURLSlave2": "assets/data/customer/tb-travel-usercase-any-s2.jpg",
+            "name": "学而思网校丨阿那亚2日主题团建",
+            "subtitle": "旅行团建"
+        },
+        {
+            "imageURLMaster": "assets/data/customer/tb-leisure-usercase-lenovo.jpg",
+            "imageURLSlave1": "assets/data/customer/tb-leisure-usercase-lenovo-s1.jpg",
+            "imageURLSlave2": "assets/data/customer/tb-leisure-usercase-lenovo-s2.jpg",
+            "name": "Lenovo 丨隐居乡里轻奢度假",
+            "subtitle": "休闲团建"
+        }
+    ]
+}

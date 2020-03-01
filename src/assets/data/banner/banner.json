@@ -1,0 +1,16 @@
+{
+    "banners": [
+        {
+            "imageURL": "assets/data/banner/banner1.png"
+        },
+        {
+            "imageURL": "assets/data/banner/banner2.png"
+        },
+        {
+            "imageURL": "assets/data/banner/banner3.png"
+        },
+        {
+            "imageURL": "assets/data/banner/banner4.png"
+        }
+    ]
+}

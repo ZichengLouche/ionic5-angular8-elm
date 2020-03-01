@@ -1,0 +1,33 @@
+﻿{
+    "name": "【少年的你·青春学堂】1日主题年会",
+    "benefit": [
+        "增强积极性",
+        "强化合作",
+        "新员工融入",
+        "减压放松"
+    ],
+    "sellingPoints": "校园生活充斥着整个青春，无忧无虑，无所畏惧，让我们一起重返那快乐的时光",
+    "productImages": [
+        "assets/data/product-detail/annual-conference-theme-1.jpg",
+        "assets/data/product-detail/annual-conference-theme-2.jpg",
+        "assets/data/product-detail/annual-conference-theme-3.jpg",
+        "assets/data/product-detail/annual-conference-theme-4.jpg",
+        "assets/data/product-detail/annual-conference-theme-5.jpg",
+        "assets/data/product-detail/annual-conference-theme-6.jpg",
+        "assets/data/product-detail/annual-conference-theme-7.jpg",
+        "assets/data/product-detail/annual-conference-theme-8.jpg",
+        "assets/data/product-detail/annual-conference-theme-9.jpg",
+        "assets/data/product-detail/annual-conference-theme-10.jpg",
+        "assets/data/product-detail/annual-conference-theme-11.jpg",
+        "assets/data/product-detail/annual-conference-theme-12.jpg",
+        "assets/data/product-detail/annual-conference-theme-13.jpg",
+        "assets/data/product-detail/annual-conference-theme-14.jpg",
+        "assets/data/product-detail/annual-conference-theme-15.jpg"
+    ],
+    "duration": "1天0晚",
+    "peopleNumber": "80-300",
+    "basePrice": "1499",
+    "averagePrice": "80人均价",
+    "productType": 1,
+    "serieType": 2
+}

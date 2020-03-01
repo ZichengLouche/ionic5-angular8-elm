@@ -1,0 +1,91 @@
+@import "../../../style/mixin.scss";
+
+/* Andy 2020.2.20 16:32 ; */
+                    :host ::ng-deep ion-slides .swiper-pagination-fraction {
+  color        : #fff;
+  background   : rgba(207, 138, 138, 0.5);
+  border-radius: 10px;
+  width        : auto;
+  right        : 20px;
+  left         : auto;
+  font-size    : 12px;
+  padding      : 0 10px;
+  line-height  : 20px;
+}
+
+.product-detail-name {
+  font-size  : 22px;
+  font-weight: 700;
+  color      : #222;
+  padding    : 10px 16px;
+  line-height: 34px;
+}
+
+.product-detail-benifit {
+  background   : #ffc53d;
+  border-radius: 2px;
+  font-size    : 12px;
+  color        : #222;
+  margin-right : 3px;
+  margin-bottom: 3px;
+}
+
+.product-detail-sellingPoints {
+  padding      : 10px 0px;
+  margin       : 0px 16px;
+  color        : #999;
+  font-size    : 14px;
+  line-height  : 22px;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+ion-row.ion-padding-horizontal.ion-margin-vertical ion-col {
+  padding: 0
+}
+
+.product-detail-days {
+  font-size  : 14px;
+  font-weight: 700;
+  color      : #222;
+}
+
+.product-detail-price {
+  font-size  : 24px;
+  font-weight: 700;
+  color      : #f9541c;
+}
+
+.product-detail-price:after {
+  content  : "元起/人";
+  font-size: 12px;
+  color    : #4a4a4a;
+}
+
+.product-detail-price-booking {
+  font-size: 12px;
+  color    : #999;
+}
+
+// ion-segment::after {
+//   position  : absolute;
+//   bottom    : 0;
+//   height    : 2px;
+//   width     : 100%;
+//   content   : '';
+//   background: rgba(0, 0, 0, 0.5);
+//   z-index   : -1;
+// }
+
+ion-segment-button {
+  font-size                : 15px;
+  color                    : #222;
+  --border-width           : 0px;
+  --padding-top            : 12px;
+  --padding-bottom         : 12px;
+  --indicator-color        : red;
+  --indicator-color-checked: #ffc53d;
+  --indicator-height       : 4px;
+  --background-checked     : transparent;
+
+  ::ng-deep .segment-button-indicator { display: block; }
+}

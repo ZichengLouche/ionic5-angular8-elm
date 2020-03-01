@@ -1,0 +1,214 @@
+.welcome-card img {
+  max-height: 35vh;
+  overflow  : hidden;
+}
+
+ion-toolbar {
+  --color     : #333;
+  --background: #ffc53d;
+  min-height: auto;
+  --border-width: 0 !important;
+  
+  ion-icon {
+    width: 20px;
+    height: 20px;
+    vertical-align: bottom;
+    padding-left: 10px;
+  }
+
+  ion-title {
+    font-size: 17px;
+    font-weight: 700;
+  }
+}
+
+
+figure {
+  text-align: center;
+  font-size : 12px;
+}
+
+.quick-access-usecase {
+  width           : 45px;
+  height          : 45px;
+  background-color: #2DD986;
+  border-radius   : 2em;
+  margin-bottom   : 16px;
+}
+
+.quick-access-container img {
+  width : 64px;
+  height: 64px;
+}
+
+/* Andy 2020.1.24 12:23 方案一：white-space: nowrap; + display: inline-block; */
+.scroll-container {
+  white-space: nowrap;
+  overflow-x : scroll;
+  overflow-y : hidden;
+}
+
+.scroll-container::-webkit-scrollbar {
+  display: none;
+}
+
+.ion-card-160 {
+  width       : 160px;
+  height      : 190px;
+  display     : inline-block;
+  margin-right: 0px;
+}
+
+ion-img {
+  object-fit: cover;
+  width     : 100%;
+  height    : 50%;
+}
+
+.ion-card-270 {
+  width       : 270px;
+  height      : 260px;
+  display     : inline-block;
+  margin-right: 0px;
+
+  .img-master {
+    width        : 62%;
+    height       : 100%;
+    float        : left;
+    padding-right: 1px;
+  }
+
+  .img-slave {
+    width         : 38%;
+    float         : left;
+    padding-bottom: 1px;
+  }
+}
+
+.img-avatar {
+  width        : 80px;
+  height       : 80px;
+  border-radius: 50%;
+  overflow     : hidden;
+  display      : inline-block;
+}
+
+
+.clearfix::after {
+  content: "";
+  clear  : both;
+  display: table;
+}
+
+
+/* 方案二：display: flex; + flex: 0 0 auto; */
+/* 方案三：div[scrollX=true], div[scrollY=true] */
+section[scrollX=true],
+section[scrollY=true] {
+  white-space: nowrap;
+  position   : relative;
+  overflow   : hidden;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
+}
+
+section[scrollX=true] {
+  overflow-x: auto;
+}
+
+section[scrollY=true] {
+  overflow-y: auto;
+}
+
+.ion-card-type {
+  position        : absolute;
+  left            : 0;
+  top             : 0;
+  background-image: linear-gradient(269deg, #ff9570, #ff3d3d);
+  font-size       : 10px;
+  color           : #fff;
+  border-radius   : 0 0 4px 0;
+  line-height     : 20px;
+}
+
+.card-header-title {
+  font-size  : 20px;
+  font-weight: 700;
+  color      : #2d2d2d;
+}
+
+.card-header-subtitle {
+  font-size          : 14px;
+  color              : #999;
+  --min-height       : 0px;
+  --inner-padding-end: 15px;
+}
+
+.card-content-title {
+  font-size  : 12px;
+  color      : #222;
+  font-weight: 700;
+  padding    : 0 10px;
+  line-height: 20px;
+  white-space: pre-line;
+  text-align : justify;
+}
+
+.card-content-subtitle {
+  font-size  : 10px;
+  color      : #666;
+  padding    : 0 10px;
+  line-height: 20px;
+}
+
+.card-content-des {
+  font-size  : 12px;
+  color      : #666;
+  white-space: normal;
+  padding    : 0 20px;
+}
+
+.card-content-title-md {
+  font-size  : 14px;
+  color      : #222;
+  font-weight: 700;
+}
+
+.card-content-subtitle-md {
+  font-size: 14px;
+  color    : #999;
+}
+
+.card-price {
+  font-size  : 14px;
+  font-weight: 700;
+  color      : #f9541c;
+  position   : absolute;
+  bottom     : 10px;
+  right      : 10px;
+}
+
+.card-price-0 {
+  font-size  : 12px;
+  font-weight: 400;
+}
+
+.card-price-1 {
+  font-size  : 8px;
+  font-weight: 400;
+  color      : #666;
+}
+
+.card-price-unit:after {
+  content    : "元起/人";
+  font-size  : 8px;
+  font-weight: 400;
+  color      : #666;
+}
+
+.home-brand {
+  // font-size: 14px;
+  color: #c9c9c9;
+}

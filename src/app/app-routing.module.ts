@@ -5,6 +5,8 @@ const routes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'address', loadChildren: './address/address.module#AddressPageModule' },
   { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule' },
+  { path: 'tabs-tb', loadChildren: './tabs-tb/tabs-tb.module#TabsTBPageModule' },
+  { path: 'tb/:id', loadChildren: './tb/tb-detail/tb-detail.module#TBDetailPageModule' },
   { path: 'city/:id', loadChildren: './city/city.module#CityPageModule' },
   { path: 'confirmOrder', loadChildren: './confirm-order/confirm-order.module#ConfirmOrderPageModule' },
   { path: 'home', loadChildren: './home/home.module#HomePageModule' },

@@ -1,0 +1,50 @@
+<!-- <ion-header>
+  <back-header></back-header>
+</ion-header> -->
+
+<ion-content>
+  <ion-slides pager="true" [options]="slideOpts">
+    <ion-slide *ngFor="let imageURL of productDetail?.productImages">
+      <ion-img src="{{ imageURL }}" [routerLink]="['/food']" class="h240 object-fit-cover"></ion-img>
+    </ion-slide>
+  </ion-slides>
+
+  <h2 class="product-detail-name"> {{ productDetail.name }}</h2>
+  <ion-row class="ion-padding-horizontal">
+    <ion-col size="auto" class="product-detail-benifit" *ngFor="let benefit of productDetail?.benefit"> {{ benefit }} </ion-col>
+  </ion-row>
+  <p class="product-detail-sellingPoints"> {{ productDetail.sellingPoints }}</p>
+
+  <ion-row class="ion-padding-horizontal ion-margin-vertical ion-justify-content-between ion-align-items-center">
+    <ion-col size="auto" class="product-detail-days">
+      <ion-icon ios="md-time" class="fs18 vertical-align-top mr10" size="small"></ion-icon>{{ productDetail?.duration }}
+    </ion-col>
+    <ion-col size="auto" class="product-detail-price"> {{ productDetail?.basePrice }} </ion-col>
+  </ion-row>
+  <ion-row
+    class="ion-padding-horizontal ion-margin-vertical ion-justify-content-between ion-align-items-center relative-top--10">
+    <ion-col size="auto" class="product-detail-days">
+      <ion-icon ios="md-person" class="fs18 vertical-align-top mr10" size="small"></ion-icon>
+      {{ productDetail?.peopleNumber }}人
+    </ion-col>
+    <ion-col size="auto" class="product-detail-price-booking"> {{ productDetail?.averagePrice }} </ion-col>
+  </ion-row>
+
+  <div class="separator-10"></div>
+
+  <ion-segment value="tb-features" scrollable mode="md">
+    <ion-segment-button value="tb-features" (ionSelect)="segmentButtonClicked($event)">
+      <ion-label>团建特色</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="tour-itinerary" (ionSelect)="segmentButtonClicked($event)">
+      <ion-label>行程介绍</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="fee-description" (ionSelect)="segmentButtonClicked($event)">
+      <ion-label>费用说明</ion-label>
+    </ion-segment-button>
+    <ion-segment-button value="booking-information" (ionSelect)="segmentButtonClicked($event)">
+      <ion-label>预订须知</ion-label>
+    </ion-segment-button>
+  </ion-segment>
+
+</ion-content>

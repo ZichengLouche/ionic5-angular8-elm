@@ -1,0 +1,78 @@
+﻿{
+    "totalNumber": 8,
+    "productList": [
+        {
+            "imageURL": "assets/data/product/annual-conference-traditional.jpg",
+            "name": "慧聪集团2019年度盛典",
+            "duration": "1天0晚",
+            "peopleNumber": "50-200",
+            "basePrice": "50",
+            "productType": 1,
+            "serieType": 1
+        },
+        {
+            "imageURL": "assets/data/product/annual-conference-theme.jpg",
+            "name": "【少年的你·青春学堂】1日主题年会",
+            "duration": "1天0晚",
+            "peopleNumber": "80-300",
+            "basePrice": "1499",
+            "productType": 1,
+            "serieType": 2
+        },
+        {
+            "imageURL": "assets/data/product/annual-conference-league-building.jpg",
+            "name": "【给你不一样的战友情怀】真人室内CS1日团建年会",
+            "duration": "1天0晚",
+            "peopleNumber": "20-200",
+            "basePrice": "528",
+            "productType": 1,
+            "serieType": 3
+        },
+        {
+            "imageURL": "assets/data/product/annual-conference-travel.jpg",
+            "name": "【山栖谷隐】别致小院2日旅行年会",
+            "duration": "2天1晚",
+            "peopleNumber": "20-80",
+            "basePrice": "1342",
+            "productType": 1,
+            "serieType": 4
+        },
+
+        {
+            "imageURL": "assets/data/product/tb-theme-run.jpg",
+            "name": "【奔跑吧，少年！】提升凝聚力趣味运动会",
+            "duration": "1天0晚",
+            "peopleNumber": "20-800",
+            "basePrice": "318",
+            "productType": 2,
+            "serieType": 2
+        },
+        {
+            "imageURL": "assets/data/product/tb-theme-great-wall.jpg",
+            "name": "【最强战队】黄花水长城1日主题式拓展",
+            "duration": "1天0晚",
+            "peopleNumber": "20-300",
+            "basePrice": "358",
+            "productType": 2,
+            "serieType": 2
+        },
+        {
+            "imageURL": "assets/data/product/tb-travel-autumn-walk.jpg",
+            "name": "【赏秋景 看红叶】五彩浅山1日徒步团建",
+            "duration": "1天0晚",
+            "peopleNumber": "20-300",
+            "basePrice": "248",
+            "productType": 2,
+            "serieType": 4
+        },
+        {
+            "imageURL": "assets/data/product/tb-travel-riding.jpg",
+            "name": "【“骑”心协力 骑行在路上】雁栖湖环湖骑行1日团建",
+            "duration": "1天0晚",
+            "peopleNumber": "30-300",
+            "basePrice": "429",
+            "productType": 2,
+            "serieType": 4
+        }
+    ]
+}
