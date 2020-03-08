@@ -7,27 +7,147 @@
         "减压放松"
     ],
     "sellingPoints": "校园生活充斥着整个青春，无忧无虑，无所畏惧，让我们一起重返那快乐的时光",
-    "productImages": [
-        "assets/data/product-detail/annual-conference-theme-1.jpg",
-        "assets/data/product-detail/annual-conference-theme-2.jpg",
-        "assets/data/product-detail/annual-conference-theme-3.jpg",
-        "assets/data/product-detail/annual-conference-theme-4.jpg",
-        "assets/data/product-detail/annual-conference-theme-5.jpg",
-        "assets/data/product-detail/annual-conference-theme-6.jpg",
-        "assets/data/product-detail/annual-conference-theme-7.jpg",
-        "assets/data/product-detail/annual-conference-theme-8.jpg",
-        "assets/data/product-detail/annual-conference-theme-9.jpg",
-        "assets/data/product-detail/annual-conference-theme-10.jpg",
-        "assets/data/product-detail/annual-conference-theme-11.jpg",
-        "assets/data/product-detail/annual-conference-theme-12.jpg",
-        "assets/data/product-detail/annual-conference-theme-13.jpg",
-        "assets/data/product-detail/annual-conference-theme-14.jpg",
-        "assets/data/product-detail/annual-conference-theme-15.jpg"
+    "productCoverImages": [
+        "assets/data/product-detail/annual-conference-theme.jpg"
     ],
     "duration": "1天0晚",
     "peopleNumber": "80-300",
     "basePrice": "1499",
     "averagePrice": "80人均价",
     "productType": 1,
-    "serieType": 2
+    "serieType": 2,
+    "tbFeatures": {
+        "introduce": "在北京这样的一线城市，生活和工作压力巨大，越来越多的人们在选择娱乐方式的时候，追求绝对的放松。每个人性格不同、各有所爱，如何准确的抓住所有人的痛点成了重中之重。校园生活充斥着整个青春期，无所谓性格、无所谓喜好，每一个人都曾披星戴月的奔波在上下学的路上，都曾担心过考试成绩和即将召开的家长会。所以我们建立了一所“学校”，一秒催眠，瞬间回到小时候。在这里同学听铃声进行活动，团结协作，完成老师的任务。一切的一切，就仿佛回到了高中课堂",
+        "images": [
+            "assets/data/product-detail/annual-conference-theme-15.jpg"
+        ]
+    },
+    "tourItinerary": [
+        {
+            "theDayOfTheEvent": 1,
+            "from": "指定地点",
+            "to": "学堂",
+            "activityItems": [
+                {
+                    "activityTime": "12:00",
+                    "activitySchedule": "集合",
+                    "activityDescription": "公司指定地点集合，统一乘车前往目的地",
+                    "activityImages": [
+                        "assets/data/product-detail/annual-conference-theme-1.jpg",
+                        "assets/data/product-detail/annual-conference-theme-2.jpg"
+                    ]
+                },
+                {
+                    "activityTime": "13:30",
+                    "activitySchedule": "签到",
+                    "activityDescription": "组织签到，领取校服",
+                    "activityImages": [
+                        "assets/data/product-detail/annual-conference-theme-3.jpg",
+                        "assets/data/product-detail/annual-conference-theme-4.jpg"
+                    ]
+                },
+                {
+                    "activityTime": "14:00",
+                    "activitySchedule": "开学典礼",
+                    "activityDescription": "到场同学全部换装后，听校广播进入阶梯教室，参加开学典礼，介绍老师，进行分班，各班同学跟随自己的班主任进入传统教室，开晨会，喊口号，充分建立班级同学的凝聚力",
+                    "activityImages": [
+                        "assets/data/product-detail/annual-conference-theme-5.jpg",
+                        "assets/data/product-detail/annual-conference-theme-6.jpg"
+                    ]
+                },
+                {
+                    "activityTime": "14:30",
+                    "activitySchedule": "趣味课堂",
+                    "activityDescription": "以班级为单位分别体验三节不同的趣味课程，走廊上传出朗朗读书声，上课铃、下课铃在耳边想起，传统教室、专业课教室互相切换，使同学们忘记平时高强度的工作，彻底放松下来，就像梦一场，梦见我们回到小时候",
+                    "activityImages": [
+                        "assets/data/product-detail/annual-conference-theme-7.jpg",
+                        "assets/data/product-detail/annual-conference-theme-8.jpg"
+                    ]
+                },
+                {
+                    "activityTime": "16:00",
+                    "activitySchedule": "联欢会",
+                    "activityDescription": "联欢会开始。整个联欢会由老师自编节目、趣味游戏（可设定抽奖环节）、各班汇报演出、才艺表演、集体合唱为主要环节。根据气氛添加各种节目环节，只有你想不到的，没有我们做不到的",
+                    "activityImages": [
+                        "assets/data/product-detail/annual-conference-theme-9.jpg",
+                        "assets/data/product-detail/annual-conference-theme-10.jpg"
+                    ]
+                },
+                {
+                    "activityTime": "17:30",
+                    "activitySchedule": "班会时间",
+                    "activityDescription": "各班会班开班会，总结一天学习成果，根据大家的表现打分，每个班的得分在最后的全校大pk中起着至关重要的作用。由班主任和专业课老师带领排练节目，准备联欢会的汇报表演",
+                    "activityImages": [
+                        "assets/data/product-detail/annual-conference-theme-11.jpg",
+                        "assets/data/product-detail/annual-conference-theme-12.jpg"
+                    ]
+                },
+                {
+                    "activityTime": "18:20",
+                    "activitySchedule": "晚宴",
+                    "activityDescription": "在霍格沃兹魔法学院主题宴会厅用餐（中、西餐可选）",
+                    "activityImages": [
+                        "assets/data/product-detail/annual-conference-theme-13.jpg",
+                        "assets/data/product-detail/annual-conference-theme-14.jpg"
+                    ]
+                },
+                {
+                    "activityTime": "21:00",
+                    "activitySchedule": "散场",
+                    "activityDescription": "合影留念，准备散场，所有同学更衣，返程",
+                    "activityImages": []
+                }
+            ]
+        }
+    ],
+    "feeDescription": {
+        "feeIncludes": [
+            {
+                "type": "领队",
+                "content": "： 全程配备领队"
+            },
+            {
+                "type": "横幅",
+                "content": "： 活动定制横幅"
+            },
+            {
+                "type": "保险",
+                "content": "全程意外保险"
+            },
+            {
+                "type": "交通",
+                "content": "往返大巴车、过路费、燃油费、停车费、司机餐补"
+            },
+            {
+                "type": "用餐",
+                "content": "晚宴用餐（中，西可选费用按实际选定计算）"
+            },
+            {
+                "type": "住宿",
+                "content": "标间：含早、含午餐、含第一天下午茶"
+            }
+        ],
+        "feeNotIncludes": [
+            {
+                "type": "",
+                "content": "费用包含项目除外的所有消费"
+            },
+            {
+                "type": "",
+                "content": "活动期间内因违约、自身过错或自身疾病引起的人身和财产损失"
+            },
+            {
+                "type": "",
+                "content": "由天气、灾难、战争等不可抗力因素所造成的不能服务或延迟服务所发生的费用"
+            },
+            {
+                "type": "",
+                "content": "活动场地费（具体看场地而定）"
+            },
+            {
+                "type": "",
+                "content": "活动道具（竹竿运输）费用单算"
+            }
+        ]
+    }
 }

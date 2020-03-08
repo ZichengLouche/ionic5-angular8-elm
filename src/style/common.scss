@@ -71,7 +71,8 @@ input:-webkit-autofill:focus {
 .ci { color: inherit; }
 .object-fit-cover { object-fit: cover; }
 .vertical-align-top { vertical-align: text-top; }
-.relative-top--10 { position: relative; top: -10px; }
+.position-relative { position: relative; } .relative-top--10 { position: relative; top: -10px; }
+.transform-rotate-180 { transform: rotate(180deg); }
 
 .di { display: inline; } .dib { display: inline-block; } .db { display: block; } .dn { display: none !important; }
 .df {
@@ -104,6 +105,10 @@ input:-webkit-autofill:focus {
 .ws-2 { word-spacing: -2px; }
 
 .separator-10 { height: 10px; background: #f5f5f5; }
+
+
+
+
 
 // ion-slides .swiper-pagination-fraction {
 //   color: #fff;

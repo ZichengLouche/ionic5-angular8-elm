@@ -39,6 +39,16 @@ export class TBDetailPage {
     // Andy 2020.2.17 11:31
     this.tbService.getProductDetail().subscribe(
       data => {
+        data.productImages = [];
+        data.tourItinerary.forEach(tour => {
+          let activityImagesOfTheDay = tour.activityItems.reduce((total, current) => {
+            return total.concat(current.activityImages);
+          }, []);
+
+          data.productImages = data.productImages.concat(activityImagesOfTheDay);
+        });
+        data.productImages = data.productCoverImages.concat(data.productImages);
+
         this.productDetail = data;
       },
       error => console.log(error)
@@ -58,5 +68,9 @@ export class TBDetailPage {
     }
     const url = '/' + path.substr(0, 1) + '/' + path.substr(1, 2) + '/' + path.substr(3) + suffix;
     return 'https://fuss10.elemecdn.com' + url;
+  }
+
+  trackByFn(index, objID) {
+    return index;
   }
 }
