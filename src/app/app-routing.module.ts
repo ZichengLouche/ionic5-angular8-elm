@@ -1,8 +1,9 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, PreloadAllModules } from '@angular/router';
+import { APP_BASE_HREF, LocationStrategy, HashLocationStrategy, PathLocationStrategy } from '@angular/common';
 
 const routes: Routes = [
-  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  // { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'address', loadChildren: './address/address.module#AddressPageModule' },
   { path: 'tabs', loadChildren: './tabs/tabs.module#TabsPageModule' },
   { path: 'tabs-tb', loadChildren: './tabs-tb/tabs-tb.module#TabsTBPageModule' },
@@ -16,7 +17,12 @@ const routes: Routes = [
   { path: 'shop', loadChildren: './shop/shop.module#ShopPageModule' }
 ];
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { useHash: true })],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules, useHash: false })],
+  exports: [RouterModule],
+  providers: [
+    // { provide: APP_BASE_HREF, useValue: '!' },
+    // { provide: LocationStrategy, useClass: HashLocationStrategy },
+    // { provide: LocationStrategy, useClass: PathLocationStrategy },
+  ]
 })
 export class AppRoutingModule { }

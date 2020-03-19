@@ -5,7 +5,8 @@
   "homepage": "https://ionicframework.com/",
   "scripts": {
     "ng": "ng",
-    "start": "ng serve --port 5555 --proxy-config proxy.config.json --disableHostCheck=true --liveReload=false",
+    "start": "ng serve",
+    "start-my": "ng serve --port 5555 --proxy-config proxy.config.json --disableHostCheck=true --liveReload=false",
     "build": "ng build --prod --aot",
     "test": "ng test",
     "lint": "ng lint",

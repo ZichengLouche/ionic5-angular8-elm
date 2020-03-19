@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpParams } from '@angular/common/http';
 import { map } from 'rxjs/operators';
+import { Config } from '../config/config';
 
 @Injectable()
 
@@ -8,7 +9,7 @@ export class DataService {
   constructor(private http: HttpClient) { }
 
   getCity(type: string): any {
-    return this.http.get('/v1/cities' + `?type=${type}`);
+    return this.http.get(Config.APIS.GET_CITIES.replace(/\$\{type\}/, type));
   }
 
   getGuessCity(): any {
@@ -34,7 +35,7 @@ export class DataService {
   }
 
   getCityById(id: string): any {
-    return this.http.get('/v1/cities' + `/${id}`);
+    return this.http.get(Config.APIS.GET_CITIE_BY_ID.replace(/\$\{id\}/, id));
   }
 
   searchPlace(cityId: string, keyword: string): any {
@@ -43,11 +44,11 @@ export class DataService {
       .set('type', 'search')
       .set('city_id', cityId)
       .set('keyword', keyword);
-    return this.http.get('/v1/pois', { params: params });
+    return this.http.get(Config.APIS.SEARCH_PLACE, { params: params });
   }
 
   getPoisGeohash(geohash: string): any {
-    return this.http.get('/v2/pois' + `/${geohash}`);
+    return this.http.get(Config.APIS.GET_POIS_GEOHASH.replace(/\$\{geohash\}/, geohash));
   }
 
   getMsiteFoodTypes(geohash: string): any {
@@ -55,7 +56,7 @@ export class DataService {
       .set('geohash', geohash)
       .set('group_type', '1')
       .set('flags[]', 'F');
-    return this.http.get('/v2/index_entry', { params: params });
+    return this.http.get(Config.APIS.GET_MSITE_FOOD_TYPES, { params: params });
   }
 
   searchRestaurant(geohash: string, searchValue: string): any {
@@ -64,7 +65,7 @@ export class DataService {
       .set('geohash', geohash)
       .set('keyword', searchValue)
       .set('type', 'search');
-    return this.http.get('/v4/restaurants', { params: params });
+    return this.http.get(Config.APIS.SEARCH_RESTAURANT, { params: params });
   }
 
   getShopList(latitude, longitude, offset, restaurantCategoryId = '', restaurantCategoryIds = '', orderBy = '', deliveryMode = '', supportIds = []): any {
@@ -86,45 +87,42 @@ export class DataService {
       .set('order_by', orderBy)
       .set('delivery_mode[]', deliveryMode + supportStr)
       .set('limit', '20');
-    return this.http.get('/shopping/restaurants', { params: params });
+    return this.http.get(Config.APIS.GET_SHOP_LIST, { params: params });
   }
 
   getCaptchas(): any {
-    return this.http.post('/v1/captchas', {});
+    return this.http.post(Config.APIS.GET_CAPTCHAS, {});
   }
 
   accountLogin(username: string, password: string, captcha_code: any): any {
-    return this.http.post('/v2/login', { username, password, captcha_code });
+    return this.http.post(Config.APIS.ACCOUNT_LOGIN, { username, password, captcha_code });
   }
 
   /* 获取food页面的 category 种类列表 */
-
   getFoodCategory(latitude, longitude): any {
     const params = new HttpParams()
       .set('latitude', latitude)
       .set('longitude', longitude);
-    return this.http.get('/shopping/v2/restaurant/category', { params: params });
+    return this.http.get(Config.APIS.GET_FOOD_CATEGORY, { params: params });
   }
 
   /*  获取food页面的配送方式 */
-
   getFoodDelivery(latitude, longitude): any {
     const params = new HttpParams()
       .set('latitude', latitude)
       .set('longitude', longitude)
       .set('kw', '');
-    return this.http.get('/shopping/v1/restaurants/delivery_modes', { params: params });
+    return this.http.get(Config.APIS.GET_FOOD_DELIVERY, { params: params });
   }
 
 
   /* 获取food页面的商家属性活动列表 */
-
   getFoodActivity(latitude, longitude): any {
     const params = new HttpParams()
       .set('latitude', latitude)
       .set('longitude', longitude)
       .set('kw', '');
-    return this.http.get('/shopping/v1/restaurants/activity_attributes', { params: params });
+    return this.http.get(Config.APIS.GET_FOOD_ACTIVITY, { params: params });
   }
 
   /* 获取shop页面商铺详情 */
@@ -132,13 +130,13 @@ export class DataService {
     const params = new HttpParams()
       .set('latitude', latitude)
       .set('longitude', longitude + '&extras[]=activities&extras[]=album&extras[]=license&extras[]=identification&extras[]=statistics');
-    return this.http.get('/shopping/restaurant/' + shopId, { params: params });
+    return this.http.get(Config.APIS.GET_SHOP_DETAILS.replace(/\$\{shopId\}/, shopId) , { params: params });
   }
   /* 获取shop页面菜单列表 */
   getFoodMenu(restaurantId): any {
     const params = new HttpParams()
       .set('restaurant_id', restaurantId);
-    return this.http.get('/shopping/v2/menu', { params: params });
+    return this.http.get(Config.APIS.GET_FOOD_MENU, { params: params });
   }
 
   /* 获取商铺评价列表 */
@@ -148,29 +146,29 @@ export class DataService {
       .set('offset', offset)
       .set('limit', '10')
       .set('tag_name', tagName);
-    return this.http.get('/ugc/v2/restaurants/' + shopId + '/ratings', { params: params });
+    return this.http.get(Config.APIS.GET_RATING_LIST.replace(/\$\{shopId\}/, shopId), { params: params });
   }
 
   /* 获取商铺评价分数 */
   getRatingScores(shopId: string): any {
-    return this.http.get('/ugc/v2/restaurants/' + shopId + '/ratings/scores');
+    return this.http.get(Config.APIS.GET_RATING_LIST.replace(/\$\{shopId\}/, shopId));
   }
 
   /* 获取商铺评价分类 */
   ratingTags(shopId: string): any {
-    return this.http.get('/ugc/v2/restaurants/' + shopId + '/ratings/tags');
+    return this.http.get(Config.APIS.RATING_TAGS.replace(/\$\{shopId\}/, shopId));
   }
 
   /*  获取快速备注列表 */
   getRemark(id: string, sig: string): any {
     const params = new HttpParams()
       .set('sig', sig);
-    return this.http.get('/v1/carts/' + id + '/remarks', { params: params });
+    return this.http.get(Config.APIS.GET_REMARK.replace(/\$\{id\}/, id), { params: params });
   }
 
   /* 个人中心里编辑地址 */
   getAddressList(userId: string): any {
-    return this.http.get('/v1/users/' + userId + '/addresses');
+    return this.http.get(Config.APIS.ADDRESS.replace(/\$\{userId\}/, userId));
   }
 
   /* 添加地址 */
@@ -187,7 +185,7 @@ export class DataService {
       tag,
       tag_type,
     };
-    return this.http.post('/v1/users/' + userId + '/addresses', body);
+    return this.http.post(Config.APIS.ADDRESS.replace(/\$\{userId\}/, userId), body);
   }
 
   /* 搜索地址 */
@@ -195,13 +193,13 @@ export class DataService {
     const params = new HttpParams()
       .set('type', 'nearby')
       .set('keyword', keyword);
-    return this.http.get('/v1/pois', { params: params });
+    return this.http.get(Config.APIS.SEARCH_PLACE, { params: params });
   }
 
   /* 确认订单 */
   checkout(geohash, entities, shopId): any {
     const body = { 'come_from': 'web', 'geohash': geohash, 'entities': entities, 'restaurant_id': shopId };
-    return this.http.post('/v1/carts/checkout', body);
+    return this.http.post(Config.APIS.CHECKOUT, body);
   }
 
   /* 下订单 */
@@ -216,7 +214,7 @@ export class DataService {
       paymethod_id: 1,
       sig,
     };
-    return this.http.post('/v1/users/' + userId + '/carts/' + cartId + '/orders', body);
+    return this.http.post(Config.APIS.PLACE_ORDERS.replace(/\$\{userId\}/, userId).replace(/\$\{cartId\}/, cartId), body);
   }
 
   /* 获取订单列表 */
@@ -224,17 +222,17 @@ export class DataService {
     const params = new HttpParams()
       .set('limit', '10')
       .set('offset', offset);
-    return this.http.get('/bos/v2/users/' + userId + '/orders', { params: params });
+    return this.http.get(Config.APIS.GET_ORDER_LIST.replace(/\$\{userId\}/, userId), { params: params });
   }
   /* 获取订单详情 */
   getOrderDetail(userId, orderId): any {
-    return this.http.get('/bos/v1/users/' + userId + '/orders/' + orderId + '/snapshot');
+    return this.http.get(Config.APIS.GET_ORDER_DETAIL.replace(/\$\{userId\}/, userId).replace(/\$\{orderId\}/, orderId));
   }
 
   getUserInfo(userId: string): any {
     const params = new HttpParams()
       .set('user_id', userId);
-    return this.http.get('/v1/user', { params: params });
+    return this.http.get(Config.APIS.GET_USER_INFO, { params: params });
   }
 
   /**
@@ -248,7 +246,7 @@ export class DataService {
       .set('source', 'MOBILE_WAP')
       .set('userId', userId)
       .set('version', '1.0.0');
-    return this.http.get('/payapi/payment/queryOrder', { params: params });
+    return this.http.get(Config.APIS.GET_PAY_REQUEST, { params: params });
   }
 
 }

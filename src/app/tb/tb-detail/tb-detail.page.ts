@@ -9,7 +9,8 @@ import { ImgBaseUrl } from '../../config/env';
 })
 export class TBDetailPage {
   imgBaseUrl: string = ImgBaseUrl;
-  productDetail: Object = {};
+  productDetail: any = {};
+  segmentValue = "#tb-features";
 
   // Andy 2020.1.12 17:05 Optional parameters to pass to the swiper instance. See http://idangero.us/swiper/api/ for valid options.
   slideOpts = {
@@ -50,10 +51,22 @@ export class TBDetailPage {
         data.productImages = data.productCoverImages.concat(data.productImages);
 
         this.productDetail = data;
+        if (this.productDetail.feeDescription) {
+          this.symbolIterator(this.productDetail.feeDescription);
+        }
       },
       error => console.log(error)
     );
 
+  }
+
+  // Andy 2020.3.18 17:42
+  segmentChanged(ev: any) {
+    if(window.location.hash) {
+      window.location.href = window.location.href.replace(/#.*/, this.segmentValue);
+    } else {
+      window.location.href = window.location.href + this.segmentValue;
+    }
   }
 
   getImgPath(path) {
@@ -72,5 +85,16 @@ export class TBDetailPage {
 
   trackByFn(index, objID) {
     return index;
+  }
+
+  symbolIterator(o) {
+    o[Symbol.iterator] = function* iterEntries(obj) {
+      obj = this;
+      let keys = Object.keys(obj);
+      for (let i = 0; i < keys.length; i++) {
+        let key = keys[i];
+        yield [key, obj[key]];
+      }
+    }
   }
 }

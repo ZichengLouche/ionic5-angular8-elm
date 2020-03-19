@@ -11,7 +11,7 @@
 
   <h2 class="product-detail-name"> {{ productDetail.name }}</h2>
   <ion-row class="ion-padding-horizontal">
-    <ion-col size="auto" class="product-detail-benifit" *ngFor="let benefit of productDetail?.benefit"> {{ benefit }}
+    <ion-col size="auto" class="product-detail-benifit" *ngFor="let benefit of productDetail?.benefit">{{ benefit }}
     </ion-col>
   </ion-row>
   <p class="product-detail-sellingPoints"> {{ productDetail.sellingPoints }}</p>
@@ -34,86 +34,121 @@
 
   <div class="separator-10"></div>
 
-  <ion-segment value="tb-features" scrollable mode="md">
-    <ion-segment-button value="tb-features" (ionSelect)="segmentButtonClicked($event)">
+  <ion-segment value="#tb-features" scrollable mode="md" (ionChange)="segmentChanged($event)" [(ngModel)]="segmentValue">
+    <ion-segment-button value="#tb-features" href1="#tb-features" >
       <ion-label>团建特色</ion-label>
     </ion-segment-button>
-    <ion-segment-button value="tour-itinerary" (ionSelect)="segmentButtonClicked($event)">
+    <ion-segment-button value="#tour-itinerary" href1="/tb/123#tour-itinerary"  >
       <ion-label>行程介绍</ion-label>
     </ion-segment-button>
-    <ion-segment-button value="fee-description" (ionSelect)="segmentButtonClicked($event)">
+    <ion-segment-button value="#fee-description" href1="#fee-description"  >
       <ion-label>费用说明</ion-label>
     </ion-segment-button>
-    <ion-segment-button value="booking-information" (ionSelect)="segmentButtonClicked($event)">
+    <ion-segment-button value="#booking-information" href1="#booking-information" >
       <ion-label>预订须知</ion-label>
     </ion-segment-button>
   </ion-segment>
 
-  <a>
-    <ion-list>
-      <ion-list-header>
-        <ion-label class="ion-text-center">
-          <span class="shape-dot-12"></span>
-          <ion-text class="ml10 mr20">团建特色</ion-text>
-          <span class="shape-dot-12 transform-rotate-180"></span>
-        </ion-label>
-      </ion-list-header>
-      <ion-item>
+  <ion-list id="tb-features">
+    <ion-list-header>
+      <ion-label class="ion-text-center">
+        <span class="shape-dot-12"></span>
+        <ion-text class="ml10 mr20">团建特色</ion-text>
+        <span class="shape-dot-12 transform-rotate-180"></span>
+      </ion-label>
+    </ion-list-header>
+    <ion-item>
+      <ion-label>
+        <h3 class="item-title">团建主题</h3>
+        <ion-img *ngFor="let imageURL of productDetail?.tbFeatures?.images" src="{{ imageURL }}"></ion-img>
+        <p class="item-descrition">{{ productDetail?.tbFeatures?.introduce }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-list id="tour-itinerary">
+    <ion-list-header>
+      <ion-label class="ion-text-center">
+        <span class="shape-dot-12"></span>
+        <ion-text class="ml10 mr20">行程介绍</ion-text>
+        <span class="shape-dot-12 transform-rotate-180"></span>
+      </ion-label>
+    </ion-list-header>
+    <ion-item-group *ngFor="let tour of productDetail?.tourItinerary" class="position-relative">
+      <ion-item-divider>
+        <span class="shape-dot-bubble"></span>
+        <ion-label> 第{{ tour.theDayOfTheEvent }}天 {{ tour.from }} <ion-img src="/assets/icon/bus.svg"></ion-img>
+          {{ tour.to }} </ion-label>
+      </ion-item-divider>
+      <ion-item *ngFor="let activity of tour.activityItems" lines="none">
+        <div class="route-line" slot="start"></div>
+        <ion-icon name="bus-outline" slot="start"></ion-icon>
         <ion-label>
-          <h3 class="item-title">团建主题</h3>
-          <ion-img *ngFor="let imageURL of productDetail?.tbFeatures?.images" src="{{ imageURL }}"></ion-img>
-          <p class="item-descrition">{{ productDetail?.tbFeatures?.introduce }}</p>
+          <h3 class="item-title no-dot">
+            {{ activity.activityTime }} {{ activity.activitySchedule }}
+          </h3>
+          <ion-note>{{ activity.activityDescription }}</ion-note>
+          <ion-img *ngFor="let imageURL of activity.activityImages; let last = last; trackBy: trackByFn"
+            src="{{ imageURL }}" alt="{{ imageURL }}" [class.mb10]="!last">{{last || 'xmt'}}</ion-img>
         </ion-label>
       </ion-item>
-    </ion-list>
+    </ion-item-group>
+  </ion-list>
 
-    <ion-list>
-      <ion-list-header>
-        <ion-label class="ion-text-center">
-          <span class="shape-dot-12"></span>
-          <ion-text class="ml10 mr20">行程介绍</ion-text>
-          <span class="shape-dot-12 transform-rotate-180"></span>
-        </ion-label>
-      </ion-list-header>
-      <ion-item-group *ngFor="let tour of productDetail?.tourItinerary" class="position-relative">
-        <ion-item-divider>
-          <span class="shape-dot-bubble"></span>
-          <ion-label> 第{{ tour.theDayOfTheEvent }}天 {{ tour.from }} <ion-img src="/assets/icon/bus.svg"></ion-img> {{ tour.to }} </ion-label>
-        </ion-item-divider>
-        <ion-item *ngFor="let activity of tour.activityItems" lines="none">
-          <div class="route-line" slot="start"></div>
-          <ion-icon name="bus-outline" slot="start"></ion-icon>
-          <ion-label>
-            <h3 class="item-title no-dot"> 
-                {{ activity.activityTime }} {{ activity.activitySchedule }}
-            </h3>
-            <ion-note>{{ activity.activityDescription }}</ion-note>
-            <ion-img *ngFor="let imageURL of activity.activityImages; let last = last; trackBy: trackByFn" src="{{ imageURL }}" alt="{{ imageURL }}" [class.mb10]="!last">{{last || 'xmt'}}</ion-img>
-          </ion-label>
-        </ion-item>
-      </ion-item-group>
-    </ion-list>
+  <ion-list id="fee-description" inset="true">
+    <ion-list-header>
+      <ion-label class="ion-text-center">
+        <span class="shape-dot-12"></span>
+        <ion-text class="ml10 mr20">费用说明</ion-text>
+        <span class="shape-dot-12 transform-rotate-180"></span>
+      </ion-label>
+    </ion-list-header>
+    <ion-item-group *ngFor="let entry of productDetail?.feeDescription" class="position-relative">
+      <ion-item-divider>
+        <ion-label *ngIf="entry[0] == 'feeIncludes'">费用包含</ion-label>
+        <ion-label *ngIf="entry[0] == 'feeNotIncludes'">费用不含</ion-label>
+      </ion-item-divider>
+      <ion-item *ngFor="let fi of entry[1]" lines="none">
+        <ion-row>
+          <ion-col size="auto" *ngIf="fi.type"> {{ fi.type }} : &nbsp; </ion-col>
+          <ion-col class="font-weight-initial"> {{ fi.content }} </ion-col>
+        </ion-row>
+      </ion-item>
+    </ion-item-group>
+  </ion-list>
 
-    <ion-list>
-      <ion-list-header>
-        <ion-label class="ion-text-center">
-          <span class="shape-dot-12"></span>
-          <ion-text class="ml10 mr20">费用说明</ion-text>
-          <span class="shape-dot-12 transform-rotate-180"></span>
-        </ion-label>
-      </ion-list-header>
-      <ion-item-group *ngFor="let fee of productDetail?.feeDescription" class="position-relative">
-        <ion-item-divider>
-          <ion-label>费用包含</ion-label>
-        </ion-item-divider>
-        <ion-item *ngFor="let fi of fee.feeIncludes" lines="none">
-          <ion-label>
-              <ion-text class=""> {{ fi.type }} </ion-text>
-              <ion-text class=""> {{ fi.content }} </ion-text>
-          </ion-label>
-        </ion-item>
-      </ion-item-group>
-    </ion-list>
-  </a>
+  <ion-list id="booking-information">
+    <ion-list-header>
+      <ion-label class="ion-text-center">
+        <span class="shape-dot-12"></span>
+        <ion-text class="ml10 mr20">预订须知</ion-text>
+        <span class="shape-dot-12 transform-rotate-180"></span>
+      </ion-label>
+    </ion-list-header>
+    <ion-item lines="none">
+      <ion-label>
+        <p *ngFor="let bi of productDetail?.bookingInformations">{{ bi }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <ion-list class="warm-prompt">
+    <ion-list-header>
+      <ion-label class="ion-text-center">
+        <span class="shape-dot-12"></span>
+        <ion-text class="ml10 mr20">温馨提示</ion-text>
+        <span class="shape-dot-12 transform-rotate-180"></span>
+      </ion-label>
+    </ion-list-header>
+    <ion-item lines="none">
+      <ion-label>
+        <p *ngFor="let wp of productDetail?.warmPrompts">{{ wp }}</p>
+      </ion-label>
+    </ion-item>
+  </ion-list>
+
+  <figure class="logo">
+    <ion-img src="/assets/imgs/merry-log-gray.png"></ion-img>
+  </figure>
 
 </ion-content>
