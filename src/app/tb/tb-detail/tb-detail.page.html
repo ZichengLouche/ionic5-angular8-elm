@@ -1,8 +1,10 @@
-<!-- <ion-header>
-  <back-header></back-header>
-</ion-header> -->
+<ion-header>
+  <ion-toolbar id="fixed-nav-bar-container" #fixedToolbarContainer>
+    <ion-back-button></ion-back-button>
+  </ion-toolbar>
+</ion-header>
 
-<ion-content>
+<ion-content [scrollEvents]="true">
   <ion-slides pager="true" [options]="slideOpts">
     <ion-slide *ngFor="let imageURL of productDetail?.productImages">
       <ion-img src="{{ imageURL }}" [routerLink]="['/food']" class="h240 object-fit-cover"></ion-img>
@@ -34,20 +36,22 @@
 
   <div class="separator-10"></div>
 
-  <ion-segment value="#tb-features" scrollable mode="md" (ionChange)="segmentChanged($event)" [(ngModel)]="segmentValue">
-    <ion-segment-button value="#tb-features" href1="#tb-features" >
-      <ion-label>团建特色</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="#tour-itinerary" href1="/tb/123#tour-itinerary"  >
-      <ion-label>行程介绍</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="#fee-description" href1="#fee-description"  >
-      <ion-label>费用说明</ion-label>
-    </ion-segment-button>
-    <ion-segment-button value="#booking-information" href1="#booking-information" >
-      <ion-label>预订须知</ion-label>
-    </ion-segment-button>
-  </ion-segment>
+  <section id="dynamic-nav-bar-container" #dynamicNavBarContainer>
+    <ion-segment value="#tb-features" scrollable mode="md" (ionChange)="segmentChanged($event)" [(ngModel)]="segmentValue" id="segment-nav-bar" #segmentNavBar class="width-100">
+      <ion-segment-button value="#tb-features" href1="#tb-features" >
+        <ion-label>团建特色</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="#tour-itinerary" href1="/tb/123#tour-itinerary"  >
+        <ion-label>行程介绍</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="#fee-description" href1="#fee-description"  >
+        <ion-label>费用说明</ion-label>
+      </ion-segment-button>
+      <ion-segment-button value="#booking-information" href1="#booking-information" >
+        <ion-label>预订须知</ion-label>
+      </ion-segment-button>
+    </ion-segment>
+  </section>
 
   <ion-list id="tb-features">
     <ion-list-header>
