@@ -1,7 +1,7 @@
 @import "../../../style/mixin.scss";
 
 /* Andy 2020.2.20 16:32 ; */
-                    :host ::ng-deep ion-slides .swiper-pagination-fraction {
+:host ::ng-deep ion-slides .swiper-pagination-fraction {
   color        : #fff;
   background   : rgba(207, 138, 138, 0.5);
   border-radius: 10px;
@@ -85,6 +85,13 @@ ion-segment-button {
 
 ion-segment-button.segment-button-checked {
   font-weight: 700;
+}
+
+ion-segment.fixed {
+  position  : fixed;
+  top       : 44px;
+  z-index   : 1;
+  background: #ffffff;
 }
 
 .shape-dot-12 {

@@ -1,23 +1,49 @@
 /** ion-toolbar **/
 ion-toolbar {
-  min-height: 3.3rem;
-  --background: #108ee9;
+  min-height    : 3.3rem;
+  --background  : #108ee9;
   --border-color: #108ee9;
+}
+
+/** Andy 2020.4.2 11:11 **/
+ion-toolbar.toolbar-tb {
+  --color       : #333;
+  --background  : #ffc53d;
+  min-height    : auto;
+  --border-width: 0 !important;
+
+  ion-icon {
+    width         : 20px;
+    height        : 20px;
+    vertical-align: bottom;
+    padding-left  : 10px;
+  }
+
+  ion-title {
+    font-size  : 17px;
+    font-weight: 700;
+  }
+
+  ion-back-button {
+    color: #333;
+  }
 }
 
 /** ion-title **/
 ion-title {
   text-align: center;
-  font-size: 1.4rem;
+  font-size : 1.4rem;
 }
 
 /** ion-back-button **/
 .back-button-native {
   font-size: 1.2rem !important;
 }
+
 ion-back-button {
   position: absolute;
 }
+
 .back-button-native[data-ion-back-button-md] {
   margin-left: -1rem;
 }
@@ -30,38 +56,38 @@ ion-content {
 /** toast **/
 ion-toast {
   --background: rgba(58, 58, 58, 0.9);
-  --color: #fff;
-  text-align: center;
+  --color     : #fff;
+  text-align  : center;
 }
 
 .toast-container {
-  text-align: center;
+  text-align      : center;
   background-color: #333;
-  border-radius: .2rem;
+  border-radius   : .2rem;
 }
 
 .toast-ios .toast-wrapper,
 .toast-md .toast-wrapper {
-  left: 1rem;
-  right: 1rem;
+  left         : 1rem;
+  right        : 1rem;
   border-radius: 0.65rem;
-  width: auto;
+  width        : auto;
 }
 
 .toast-ios .toast-message,
 .toast-md .toast-message {
   font-size: 1rem;
-  color: #fff;
-  padding: .6rem;
+  color    : #fff;
+  padding  : .6rem;
 }
 
 /** infinite sroll **/
 ion-infinite-scroll-content {
-	min-height: 1px;
+  min-height: 1px;
 }
 
 .infinite-loading {
-    margin-bottom: 0;
+  margin-bottom: 0;
 }
 
 /** ion header **/

@@ -3,26 +3,6 @@
   overflow  : hidden;
 }
 
-ion-toolbar {
-  --color     : #333;
-  --background: #ffc53d;
-  min-height: auto;
-  --border-width: 0 !important;
-  
-  ion-icon {
-    width: 20px;
-    height: 20px;
-    vertical-align: bottom;
-    padding-left: 10px;
-  }
-
-  ion-title {
-    font-size: 17px;
-    font-weight: 700;
-  }
-}
-
-
 figure {
   text-align: center;
   font-size : 12px;

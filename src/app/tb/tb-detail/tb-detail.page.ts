@@ -1,7 +1,8 @@
-import { Component, ViewChild, ElementRef, ComponentRef, AfterViewInit, AfterViewChecked } from '@angular/core';
+import { Component, ViewChild, ElementRef, ComponentRef, AfterViewInit, AfterViewChecked, Renderer } from '@angular/core';
 import { IonContent, IonSegment, IonToolbar } from '@ionic/angular';
 import { TBService } from '../../service';
 import { ImgBaseUrl } from '../../config/env';
+import { CommonUtils } from '../../utils/common-utils';
 
 @Component({
   selector: 'app-tb-detail',
@@ -54,8 +55,9 @@ export class TBDetailPage implements AfterViewInit, AfterViewChecked {
     }
   };
 
-  constructor(private tbService: TBService) {
+  constructor(private tbService: TBService, private elementRef: ElementRef, private renderer: Renderer) {
     this.imgBaseUrl = "test";
+    this.scrollHandler = CommonUtils.throttle(this.scrollHandler, 200);
   }
 
   ngOnInit() {
@@ -74,7 +76,7 @@ export class TBDetailPage implements AfterViewInit, AfterViewChecked {
 
         this.productDetail = data;
         if (this.productDetail.feeDescription) {
-          this.symbolIterator(this.productDetail.feeDescription);
+          CommonUtils.symbolIterator(this.productDetail.feeDescription);
         }
 
         setTimeout(() => {
@@ -93,12 +95,19 @@ export class TBDetailPage implements AfterViewInit, AfterViewChecked {
     this.fixedToolbarContainerNative = document.getElementById("fixed-nav-bar-container");
 
     this.content.ionScroll.subscribe(($event) => {
-      console.log(`ngAfterViewInit -> content.ionScroll.subscribe -> boundingTop: ${this.segmentNavBarNative.getBoundingClientRect().top} 
+      console.log(`content.ionScroll.subscribe -> boundingTop: ${this.segmentNavBarNative.getBoundingClientRect().top} 
                    offsetTop: ${ this.segmentNavBarNative.offsetTop} ionScroll.$event.detail.scrollTop: ${$event.detail.scrollTop} OriginOffsetTop: ${this.segmentNavBarTop}`);
 
       // console.log("ngAfterViewInit -> content.ionScroll.subscribe -> generateContentAnchors -> ", JSON.stringify(this.generateContentAnchors()));
-      this.toggleFixedNavBar($event);
-      this.scrollActived($event);
+      // this.toggleFixedNavBar($event);
+      // this.scrollActived($event);
+      // this.isSticky($event);
+
+      this.scrollHandler($event);
+    });
+
+    this.content.ionScrollEnd.subscribe(($event) => {
+      console.log("ionScrollEnd:", $event);
     });
   }
 
@@ -121,19 +130,34 @@ export class TBDetailPage implements AfterViewInit, AfterViewChecked {
     }
   }
 
+  scrollHandler($event) {
+    this.scrollActived($event);
+    this.isSticky($event);
+  }
+
+  isSticky($event) {
+    if ($event.detail.scrollTop >= this.segmentNavBarTop) {
+      this.isFixedNavBar = true;
+
+    } else {
+      this.isFixedNavBar = false;
+    }
+  }
+
   scrollActived($event) {
-    if ($event.detail.scrollTop < this.contentAnchors.tourItinerary) {
+    if ($event.detail.scrollTop < this.contentAnchors["#tour-itinerary"]) {
       this.segmentValue = "#tb-features";
 
-    } else if ($event.detail.scrollTop >= this.contentAnchors.tourItinerary && $event.detail.scrollTop < this.contentAnchors.feeDescription) {
+    } else if ($event.detail.scrollTop >= this.contentAnchors["#tour-itinerary"] && $event.detail.scrollTop < this.contentAnchors["#fee-description"]) {
       this.segmentValue = "#tour-itinerary";
 
-    } else if ($event.detail.scrollTop >= this.contentAnchors.feeDescription && $event.detail.scrollTop < this.contentAnchors.bookingInformation) {
+    } else if ($event.detail.scrollTop >= this.contentAnchors["#fee-description"] && $event.detail.scrollTop < this.contentAnchors["#booking-information"]) {
       this.segmentValue = "#fee-description";
 
     } else {
       this.segmentValue = "#booking-information";
     }
+    console.log(`scrollActived -> set this.segmentValue = ${this.segmentValue}`);
 
     this.segmentNavBarNative.scrollLeft = ($event.detail.scrollTop < this.contentAnchors.bookingInformation) ? 0 : this.segmentNavBarNative.scrollWidth;
   }
@@ -145,10 +169,10 @@ export class TBDetailPage implements AfterViewInit, AfterViewChecked {
     let bookingInformationNative = document.getElementById('booking-information');
 
     return {
-      "tbFeatures": tbFeaturesNative.offsetTop,
-      "tourItinerary": tourItineraryNative.offsetTop,
-      "feeDescription": feeDescriptionNative.offsetTop,
-      "bookingInformation": bookingInformationNative.offsetTop,
+      "#tb-features": tbFeaturesNative.offsetTop - (this.isFixedNavBar ? this.segmentNavBarNative.offsetHeight : 0),
+      "#tour-itinerary": tourItineraryNative.offsetTop - (this.isFixedNavBar ? this.segmentNavBarNative.offsetHeight : 0),
+      "#fee-description": feeDescriptionNative.offsetTop - (this.isFixedNavBar ? this.segmentNavBarNative.offsetHeight : 0),
+      "#booking-information": bookingInformationNative.offsetTop - (this.isFixedNavBar ? this.segmentNavBarNative.offsetHeight : 0),
     }
   }
 
@@ -159,13 +183,25 @@ export class TBDetailPage implements AfterViewInit, AfterViewChecked {
     } else {
       window.location.href = window.location.href + this.segmentValue;
     }
+    console.log("segmentChanged -> window.location.href:", this.segmentValue);
   }
 
-  segmentNavigateByScroll(type: string) {
+  segmentClicked(value: any) {
+    this.segmentValue = value;
+    if (window.location.hash) {
+      window.location.href = window.location.href.replace(/#.*/, this.segmentValue);
+    } else {
+      window.location.href = window.location.href + this.segmentValue;
+    }
+    console.log("segmentClicked -> window.location.href:", this.segmentValue);
+  }
+
+  segmentNavigateByScroll(ev: any) {
     let contentScrollY = this.contentAnchors[this.segmentValue] ? this.contentAnchors[this.segmentValue] : 0;
     const needScrollNavBarTypes = ['theme', 'saleTool'];
-    this.segmentNavBarNative.scrollLeft = needScrollNavBarTypes.indexOf(type) >= 0 ? this.segmentNavBarNative.scrollWidth : 0;
+    this.segmentNavBarNative.scrollLeft = needScrollNavBarTypes.indexOf(this.segmentValue) >= 0 ? this.segmentNavBarNative.scrollWidth : 0;
     this.content.scrollToPoint(0, contentScrollY, 500);
+    console.log("segmentNavigateByScroll:", contentScrollY);
   }
 
   getImgPath(path) {
@@ -184,16 +220,5 @@ export class TBDetailPage implements AfterViewInit, AfterViewChecked {
 
   trackByFn(index, objID) {
     return index;
-  }
-
-  symbolIterator(o) {
-    o[Symbol.iterator] = function* iterEntries(obj) {
-      obj = this;
-      let keys = Object.keys(obj);
-      for (let i = 0; i < keys.length; i++) {
-        let key = keys[i];
-        yield [key, obj[key]];
-      }
-    }
   }
 }

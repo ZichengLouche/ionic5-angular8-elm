@@ -1,6 +1,7 @@
 <ion-header>
-  <ion-toolbar id="fixed-nav-bar-container" #fixedToolbarContainer>
-    <ion-back-button></ion-back-button>
+  <ion-toolbar class="toolbar-tb" id="fixed-nav-bar-container" #fixedToolbarContainer>
+    <ion-back-button slot="start" defaultHref="/tabs-tb/tb" text=""></ion-back-button>
+    <ion-title> 迈瑞团建 </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -37,17 +38,17 @@
   <div class="separator-10"></div>
 
   <section id="dynamic-nav-bar-container" #dynamicNavBarContainer>
-    <ion-segment value="#tb-features" scrollable mode="md" (ionChange)="segmentChanged($event)" [(ngModel)]="segmentValue" id="segment-nav-bar" #segmentNavBar class="width-100">
-      <ion-segment-button value="#tb-features" href1="#tb-features" >
+    <ion-segment value="#tb-features" scrollable mode="md" (ionChange1)="segmentChanged($event)" [(ngModel)]="segmentValue" id="segment-nav-bar" #segmentNavBar class="width-100" [class.fixed]="isFixedNavBar">
+      <ion-segment-button value="#tb-features" href1="#tb-features" (click)="segmentClicked('#tb-features')">
         <ion-label>团建特色</ion-label>
       </ion-segment-button>
-      <ion-segment-button value="#tour-itinerary" href1="/tb/123#tour-itinerary"  >
+      <ion-segment-button value="#tour-itinerary" href1="/tb/123#tour-itinerary"  (click)="segmentClicked('#tour-itinerary')">
         <ion-label>行程介绍</ion-label>
       </ion-segment-button>
-      <ion-segment-button value="#fee-description" href1="#fee-description"  >
+      <ion-segment-button value="#fee-description" href1="#fee-description"  (click)="segmentClicked('#fee-description')">
         <ion-label>费用说明</ion-label>
       </ion-segment-button>
-      <ion-segment-button value="#booking-information" href1="#booking-information" >
+      <ion-segment-button value="#booking-information" href1="#booking-information" (click)="segmentClicked('#booking-information')">
         <ion-label>预订须知</ion-label>
       </ion-segment-button>
     </ion-segment>
