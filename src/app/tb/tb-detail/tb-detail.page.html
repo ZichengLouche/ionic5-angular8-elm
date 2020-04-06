@@ -39,16 +39,16 @@
 
   <section id="dynamic-nav-bar-container" #dynamicNavBarContainer>
     <ion-segment value="#tb-features" scrollable mode="md" (ionChange1)="segmentChanged($event)" [(ngModel)]="segmentValue" id="segment-nav-bar" #segmentNavBar class="width-100" [class.fixed]="isFixedNavBar">
-      <ion-segment-button value="#tb-features" href1="#tb-features" (click)="segmentClicked('#tb-features')">
+      <ion-segment-button value="#tb-features" href1="#tb-features" (click)="segmentNavigateByScroll('#tb-features')">
         <ion-label>团建特色</ion-label>
       </ion-segment-button>
-      <ion-segment-button value="#tour-itinerary" href1="/tb/123#tour-itinerary"  (click)="segmentClicked('#tour-itinerary')">
+      <ion-segment-button value="#tour-itinerary" href1="/tb/123#tour-itinerary"  (click)="segmentNavigateByScroll('#tour-itinerary')">
         <ion-label>行程介绍</ion-label>
       </ion-segment-button>
-      <ion-segment-button value="#fee-description" href1="#fee-description"  (click)="segmentClicked('#fee-description')">
+      <ion-segment-button value="#fee-description" href1="#fee-description"  (click)="segmentNavigateByScroll('#fee-description')">
         <ion-label>费用说明</ion-label>
       </ion-segment-button>
-      <ion-segment-button value="#booking-information" href1="#booking-information" (click)="segmentClicked('#booking-information')">
+      <ion-segment-button value="#booking-information" href1="#booking-information" (click)="segmentNavigateByScroll('#booking-information')">
         <ion-label>预订须知</ion-label>
       </ion-segment-button>
     </ion-segment>

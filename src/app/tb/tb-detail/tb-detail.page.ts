@@ -57,7 +57,8 @@ export class TBDetailPage implements AfterViewInit, AfterViewChecked {
 
   constructor(private tbService: TBService, private elementRef: ElementRef, private renderer: Renderer) {
     this.imgBaseUrl = "test";
-    this.scrollHandler = CommonUtils.throttle(this.scrollHandler, 200);
+    // this.scrollHandler = CommonUtils.throttle(this.scrollHandler, 200);
+    this.scrollHandler = CommonUtils.debounce(this.scrollHandler, 100);
   }
 
   ngOnInit() {
@@ -100,8 +101,8 @@ export class TBDetailPage implements AfterViewInit, AfterViewChecked {
 
       // console.log("ngAfterViewInit -> content.ionScroll.subscribe -> generateContentAnchors -> ", JSON.stringify(this.generateContentAnchors()));
       // this.toggleFixedNavBar($event);
-      // this.scrollActived($event);
       // this.isSticky($event);
+      // this.scrollActived($event);
 
       this.scrollHandler($event);
     });
@@ -131,8 +132,8 @@ export class TBDetailPage implements AfterViewInit, AfterViewChecked {
   }
 
   scrollHandler($event) {
-    this.scrollActived($event);
     this.isSticky($event);
+    this.scrollActived($event);
   }
 
   isSticky($event) {
@@ -169,10 +170,10 @@ export class TBDetailPage implements AfterViewInit, AfterViewChecked {
     let bookingInformationNative = document.getElementById('booking-information');
 
     return {
-      "#tb-features": tbFeaturesNative.offsetTop - (this.isFixedNavBar ? this.segmentNavBarNative.offsetHeight : 0),
-      "#tour-itinerary": tourItineraryNative.offsetTop - (this.isFixedNavBar ? this.segmentNavBarNative.offsetHeight : 0),
-      "#fee-description": feeDescriptionNative.offsetTop - (this.isFixedNavBar ? this.segmentNavBarNative.offsetHeight : 0),
-      "#booking-information": bookingInformationNative.offsetTop - (this.isFixedNavBar ? this.segmentNavBarNative.offsetHeight : 0),
+      "#tb-features": this.segmentNavBarTop - 1,
+      "#tour-itinerary": tourItineraryNative.offsetTop - (this.isFixedNavBar ? this.segmentNavBarNative.offsetHeight : this.segmentNavBarNative.offsetHeight * 2),
+      "#fee-description": feeDescriptionNative.offsetTop - (this.isFixedNavBar ? this.segmentNavBarNative.offsetHeight : this.segmentNavBarNative.offsetHeight * 2),
+      "#booking-information": bookingInformationNative.offsetTop - (this.isFixedNavBar ? this.segmentNavBarNative.offsetHeight : this.segmentNavBarNative.offsetHeight * 2),
     }
   }
 
@@ -196,7 +197,8 @@ export class TBDetailPage implements AfterViewInit, AfterViewChecked {
     console.log("segmentClicked -> window.location.href:", this.segmentValue);
   }
 
-  segmentNavigateByScroll(ev: any) {
+  segmentNavigateByScroll(value: any) {
+    this.segmentValue = value;
     let contentScrollY = this.contentAnchors[this.segmentValue] ? this.contentAnchors[this.segmentValue] : 0;
     const needScrollNavBarTypes = ['theme', 'saleTool'];
     this.segmentNavBarNative.scrollLeft = needScrollNavBarTypes.indexOf(this.segmentValue) >= 0 ? this.segmentNavBarNative.scrollWidth : 0;
