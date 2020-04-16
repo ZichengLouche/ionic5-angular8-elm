@@ -16,9 +16,13 @@ figure {
   margin-bottom   : 16px;
 }
 
-.quick-access-container img {
-  width : 64px;
-  height: 64px;
+.quick-access-container {
+  img,
+  ion-img {
+    width  : 64px;
+    height : 64px;
+    display: inline-block;
+  }
 }
 
 /* Andy 2020.1.24 12:23 方案一：white-space: nowrap; + display: inline-block; */
@@ -190,5 +194,5 @@ section[scrollY=true] {
 
 .home-brand {
   // font-size: 14px;
-  color: #c9c9c9;
+  color       : #c9c9c9;
 }

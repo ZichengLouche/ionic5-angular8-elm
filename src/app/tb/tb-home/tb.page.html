@@ -1,7 +1,7 @@
 <ion-header>
   <ion-toolbar class="toolbar-tb">
     <ion-icon name="pin"></ion-icon> 武汉
-    <ion-title> 迈瑞团建 </ion-title>
+    <ion-title> 迈睿团建 </ion-title>
   </ion-toolbar>
 </ion-header> 
 
@@ -11,35 +11,33 @@
 <ion-content>
   <ion-slides pager="true" [options]="slideOpts">
     <ion-slide *ngFor="let banner of banners">
-      <div class="home-banner-slider">
-        <img src="{{banner.imageURL}}" [routerLink]="['/tb', 'MFRNW#t0']" />
-      </div>
+      <ion-img [src]="banner.imageURL" [routerLink]="['/tb', 'MFRNW#t0']"></ion-img>
     </ion-slide>
   </ion-slides>
 
   <div class="quick-access-container">
     <ion-row class="new-comer">
-      <ion-col (click)="clickQuickEntryItem('quick-order')">
+      <ion-col >
         <figure>
-          <img src="/assets/imgs/tb/lantern.png">
+          <ion-img src="/assets/imgs/tb/lantern.png"></ion-img>
           <figcaption>年会</figcaption>
         </figure>
       </ion-col>
-      <ion-col (click)="clickQuickEntryItem('all-order')">
+      <ion-col >
         <figure>
-          <img src="/assets/imgs/tb/pac-man.png">
+          <ion-img src="/assets/imgs/tb/pac-man.png"></ion-img>
           <figcaption>团建</figcaption>
         </figure>
       </ion-col>
-      <ion-col (click)="clickQuickEntryItem('new-registration')">
+      <ion-col >
         <figure class="">
-          <img src="/assets/imgs/tb/crown.png" class1="quick-access-usecase ion-margin-bottom">
+          <ion-img src="/assets/imgs/tb/crown.png" class1="quick-access-usecase ion-margin-bottom"></ion-img>
           <figcaption>案例</figcaption>
         </figure>
       </ion-col>
-      <ion-col (click)="clickQuickEntryItem('client-service')">
+      <ion-col >
         <figure>
-          <img src="/assets/imgs/tb/strategy.png">
+          <ion-img src="/assets/imgs/tb/strategy.png"></ion-img>
           <figcaption>攻略</figcaption>
         </figure>
       </ion-col>
@@ -136,7 +134,7 @@
         <figure class="df">
           <ion-img src="/assets/icon/logo-boat.svg" class="ha"></ion-img>
           <figcaption class="fs-disable">
-            <h1 class="ws-2">迈 瑞 团 建</h1>
+            <h1 class="ws-2">迈 睿 团 建</h1>
             <p>迈源于行动 睿出于感悟</p>
           </figcaption>
         </figure>

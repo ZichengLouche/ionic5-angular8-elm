@@ -1,34 +1,37 @@
+import { environment } from '../../environments/environment';
+
 /**
  * Andy 2020.3.14 18:18 Oriflame
  */
-const localServer = 'http://localhost:5555/';
-const testServer = 'http://9.110.87.58:3000';
-const prodServer = 'https://zadvisort.mybluemix.net';
+const localServer = 'http://localhost:5555';
+const testServer = 'https://zadvisort.mybluemix.net';
+const prodServer = 'http://34.92.79.243';
 const proxyServer = 'http://cangdu.org:8001';
 const proxyPrefix = '/api';
 // const proxyPrefix = '';
-const host = localServer;
+
+const host = environment.apiUrl;
 
 export const Config = {
     SERVICES: {
-        BANNER_URL: host + 'assets/data/banner/banner.json',
-        ANNUAL_PRODUCTS_URL: host + 'assets/data/product/product.json',
-        PRODUCT_DETAIL_URL: host + 'assets/data/product-detail/product-detail.json',
-        USERCASES_URL: host + 'assets/data/customer/customer.json',
-        OURS_URL: host + 'assets/data/ours/ours.json',
-        NEW_PRODUCT_URL: host + 'assets/data/new_products.json',
-        HERO_PRODUCT_URL: host + 'assets/data/hero_products.json',
-        THEME_URL: host + 'assets/data/theme.json',
-        SALES_TOOLS_URL: host + 'assets/data/sales_tools.json',
-        CATEGORY_LIST_URL: host + 'assets/data/category/categoryList.json',
-        PRODUCT_LIST_URL: host + 'assets/data/category/productList.json',
-        SUCCESS_STORY_URL: host + 'assets/data/discover/successStoryList.json',
-        KOL_SUGGEST_URL: host + 'assets/data/discover/kolSuggestList.json',
-        BEAUTY_TIPS_URL: host + 'assets/data/discover/beautyTipsList.json',
-        HEALTH_LIFE_URL: host + 'assets/data/discover/healthLifeList.json',
-        H5_INTERACT_URL: host + 'assets/data/discover/h5InteractList.json',
-        ORIFLAME_SCHOOL_URL: host + 'assets/data/discover/oriflameSchool.json',
-        ABOUT_COMPANY_URL: host + 'assets/data/discover/aboutCompany.json'
+        BANNER_URL: host + '/assets/data/banner/banner.json',
+        ANNUAL_PRODUCTS_URL: host + '/assets/data/product/product.json',
+        PRODUCT_DETAIL_URL: host + '/assets/data/product-detail/product-detail.json',
+        USERCASES_URL: host + '/assets/data/customer/customer.json',
+        OURS_URL: host + '/assets/data/ours/ours.json',
+        NEW_PRODUCT_URL: host + '/assets/data/new_products.json',
+        HERO_PRODUCT_URL: host + '/assets/data/hero_products.json',
+        THEME_URL: host + '/assets/data/theme.json',
+        SALES_TOOLS_URL: host + '/assets/data/sales_tools.json',
+        CATEGORY_LIST_URL: host + '/assets/data/category/categoryList.json',
+        PRODUCT_LIST_URL: host + '/assets/data/category/productList.json',
+        SUCCESS_STORY_URL: host + '/assets/data/discover/successStoryList.json',
+        KOL_SUGGEST_URL: host + '/assets/data/discover/kolSuggestList.json',
+        BEAUTY_TIPS_URL: host + '/assets/data/discover/beautyTipsList.json',
+        HEALTH_LIFE_URL: host + '/assets/data/discover/healthLifeList.json',
+        H5_INTERACT_URL: host + '/assets/data/discover/h5InteractList.json',
+        ORIFLAME_SCHOOL_URL: host + '/assets/data/discover/oriflameSchool.json',
+        ABOUT_COMPANY_URL: host + '/assets/data/discover/aboutCompany.json'
     },
     APIS: {
         GET_CITIES: proxyPrefix + '/v1/cities?type=${type}',
