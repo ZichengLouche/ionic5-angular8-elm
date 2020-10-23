@@ -1,0 +1,19 @@
+﻿{
+    "coverImage": "assets/data/cloud-classroom/course/html-css-course-thumnail.jpg",
+    "courseName": "html+css零基础转行入门实战80课",
+    "introduction": {
+        "targetUser": "完全没有基础的小白<br>非计算机专业同学<br>想转行的零基础人员",
+        "ourseOverview": "本套课程是我们《前端零基础转行就业入门班》的试听课程，学习完本套课程后，不管你是否满意，都可以加我们的微信nodeing-com,退回你买本套课程的全部费用，另外，如果试听了本课程后，觉得适合自己，可以参加我们的奖学金计划，获得课程全额奖学金，相当于可以免费学习《前端零基础转行就业入门班》这套课程<br><br>加QQ:2014898683&nbsp;或者nodeing-com了解详情&nbsp;<br><br><br>如果迷茫找不到学习方法，可以加QQ2014868983&nbsp;答疑解惑！！提供一对一答疑服务，微信客服：&nbsp;搜索微信号&nbsp;nodeing-com",
+        "introduceImages": [
+            "assets/data/cloud-classroom/course/course-introduction-1.png",
+            "assets/data/cloud-classroom/course/course-introduction-2.jpg",
+            "assets/data/cloud-classroom/course/course-introduction-3.jpg",
+            "assets/data/cloud-classroom/course/course-introduction-4.jpg"
+        ]
+    },
+    "lecturer": {
+        "lecturerImage": "assets/data/cloud-classroom/course/course-lecturer.jpg",
+        "lecturerName": "螺钉大叔",
+        "lecturerDescription": "我是一个不吹牛逼、不胡乱给自己包装头衔、不编排虚假经历的普通讲师，也许我这样的描述不如你们看到的其他机构讲师描述的那样牛逼闪闪，但是我能保证讲的肯定是干货。"
+    }
+}

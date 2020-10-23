@@ -1,0 +1,16 @@
+{
+    "banners": [
+        {
+            "imageURL": "assets/data/cloud-classroom/banner/banner1.jpg",
+            "courseId": "1004713057"
+        },
+        {
+            "imageURL": "assets/data/cloud-classroom/banner/banner2.jpg",
+            "courseId": "1004713058"
+        },
+        {
+            "imageURL": "assets/data/cloud-classroom/banner/banner3.png",
+            "courseId": "1004713059"
+        }
+    ]
+}

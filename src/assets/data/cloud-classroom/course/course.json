@@ -1,0 +1,42 @@
+﻿{
+    "totalNumber": 8,
+    "courseList": [
+        {
+            "id": "1004713057",
+            "name": "Bootstrap开发框架",
+            "imageURL": "assets/data/cloud-classroom/course/bootstrap.jpg",
+            "description": "轻松实现不受浏览器限制的精美界面"
+        },
+        {
+            "id": "1004713058",
+            "name": "html+css最佳入门实战",
+            "imageURL": "assets/data/cloud-classroom/course/html-css-quick-start.jpg",
+            "description": "前端零基础实战80课"
+        },
+        {
+            "id": "1004713059",
+            "name": "零基础前端入门之旅",
+            "imageURL": "assets/data/cloud-classroom/course/introduction-to-the-front.jpg",
+            "description": "一门适合初学者的精品课程"
+        },
+        {
+            "id": "1004713060",
+            "name": "JavaScript经典教程系列",
+            "imageURL": "assets/data/cloud-classroom/course/js-classic-tutorial.jpg",
+            "description": "资深全栈开发工程师亲授"
+        },
+
+        {
+            "id": "1004713061",
+            "name": "用WordPress网站做微信小程序",
+            "imageURL": "assets/data/cloud-classroom/course/make-wechat-applet-with-wordpress-website.jpg",
+            "description": "快速、低成本的小程序开发教程"
+        },
+        {
+            "id": "1004713062",
+            "name": "Web前端,从零基础到全栈工程师",
+            "imageURL": "assets/data/cloud-classroom/course/web-from-zero-to-engineer.jpg",
+            "description": "超高完整度课程+结业证书"
+        }
+    ]
+}
