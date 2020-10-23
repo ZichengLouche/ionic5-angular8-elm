@@ -42,12 +42,6 @@ input:-webkit-autofill:focus {
   -webkit-text-fill-color: #666 !important;
 }
 
-.ellipsis {
-  overflow: hidden;
-  text-overflow: ellipsis;
-  white-space: nowrap;
-}
-
 /* Andy 2017.8.22 15:04 */
 .pd20 { padding: 20px; }
 .pl5 { padding-left: 5px; } .pl10 { padding-left: 10px; } .pl15 { padding-left: 15px; } .pl20 { padding-left: 20px; }
@@ -61,14 +55,21 @@ input:-webkit-autofill:focus {
 .mb5 { margin-bottom: 5px; } .mb10 { margin-bottom: 10px; } .mb15 { margin-bottom: 15px; } .mb20 { margin-bottom: 20px; }
 .mt5 { margin-top: 5px; } .mt8 { margin-top: 8px; } .mt10 { margin-top: 10px; } .mt15 { margin-top: 15px; } .mt20 { margin-top: 20px; } .mt24 { margin-top: 24px; } .mt40 { margin-top: 40px; }
 
+.lh-22 { line-height: 22px; }
+
 .margin-vertical-10 { margin: 10px 0 }
 .margin-bottom-10 { margin-bottom: 10px; }
+
+.xmt-margin-left-20 { margin-left: 20px; }  .xmt-margin-top-15 { margin-top: 15px; }  .xmt-margin-bottom-10 { margin-bottom: 10px; }
+.xmt-padding-vertical-30 { padding: 30px 0; }
+.xmt-font-size-26 { font-size: 26px; }
 
 .h200 { height: 200px !important; } .h240 { height: 240px !important; } .ha { height: auto !important; }
 .fs14 { font-size: 14px; } .fs16 { font-size: 16px; } .fs18 { font-size: 18px; } .fs20 { font-size: 20px; }
 .fw700 { font-weight: 700; } .font-weight-initial { font-weight: initial; } 
 .mw0 { min-width: 0px; }  .width-100 { width: 100%; }
-.ci { color: inherit; }
+.ci { color: inherit; } 
+.color-gray-999 { color: #999 !important; }
 .object-fit-cover { object-fit: cover; }
 .vertical-align-top { vertical-align: text-top; }
 .position-relative { position: relative; } .relative-top--10 { position: relative; top: -10px; }
@@ -93,15 +94,22 @@ input:-webkit-autofill:focus {
 }
 .fs-disable { flex-shrink: 0; }
 
+/* Andy 2020.10.12 18:09 */
+.raw-center-horizontal { 
+  width: 65%;
+  margin: 0 auto; 
+}
+
 .cp { cursor: pointer; }
 .wbba { word-break: break-all; }
 .wwbw { word-wrap: break-word; }
 .wbnw { white-space: nowrap; }
-.ellipsis { 
-	white-space: nowrap;
-    overflow: hidden;
-	text-overflow: ellipsis; 
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
+
 .ws-2 { word-spacing: -2px; }
 
 .separator-10 { height: 10px; background: #f5f5f5; }

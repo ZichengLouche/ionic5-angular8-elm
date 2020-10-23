@@ -1,0 +1,26 @@
+<!-- <ion-content style="top: 60px; margin-bottom: 300px;"> -->
+  <div class="raw-center-horizontal">
+    <ion-slides pager="true" [options]="slideOpts" class="mt24">
+      <ion-slide *ngFor="let banner of banners">
+        <ion-img [src]="banner.imageURL" [routerLink]="['/classroom/course/introduction', banner.courseId]"></ion-img>
+      </ion-slide>
+    </ion-slides>
+
+    <header class="mt24">
+      <h3 class="card-header-title ion-padding-horizontal">精品课程</h3>
+    </header>
+    <section>
+      <ion-card class="ion-card-160" *ngFor="let item of courses" [routerLink]="['/classroom/course/introduction', item.id]">
+        <ion-img [src]="item.imageURL" [alt]="item.name"></ion-img>
+        <ion-title class="card-content-title">{{item.name}}</ion-title>
+        <div class="card-content-subtitle">{{item.description}}</div>
+      </ion-card>
+
+      <ion-card class="ion-card-160" *ngFor="let item of courses" [routerLink]="['/classroom/course/introduction', item.id]">
+        <ion-img [src]="item.imageURL" [alt]="item.name"></ion-img>
+        <ion-title class="card-content-title">{{item.name}}</ion-title>
+        <div class="card-content-subtitle">{{item.description}}</div>
+      </ion-card>
+    </section>
+  </div>
+<!-- </ion-content> -->

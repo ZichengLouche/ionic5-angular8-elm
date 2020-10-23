@@ -1,0 +1,64 @@
+/** Andy 2020.10.13 8:50 **/
+:host {
+    overflow: auto;
+}
+
+ion-content {
+    flex-shrink: 0;
+    flex-basis : auto;
+}
+
+ion-header {
+    ion-toolbar.toolbar-main {
+        --color       : #fff;
+        --background  : #2F3440;
+        min-height    : auto;
+        --min-height  : 60px;
+        --border-width: 0 !important;
+        font-size     : 14px;
+
+        ion-icon {
+            width         : 32px;
+            height        : 32px;
+            vertical-align: middle;
+            margin-left   : 4px;
+        }
+
+        ion-icon[name="book"]:nth-of-type(1) {
+            color       : #49AF4F;
+            margin-right: 10px;
+        }
+    }
+}
+
+ion-footer {
+    ion-toolbar.toolbar-main {
+        --color     : #fff;
+        --background: #474443;
+        min-height  : auto;
+        font-size   : 14px;
+
+        a {
+            color       : #fff;
+            margin-right: 17px;
+        }
+
+        a:hover {
+            text-decoration: underline;
+            color          : #109648 !important;
+        }
+
+        .app-store-download-logo-1 {
+            background: url(/assets/imgs/app-store-download.png) no-repeat 0 0;
+            display   : inline-block;
+            width     : 111px;
+            height    : 32px;
+            margin    : 0 0 0 10px;
+        }
+
+        .app-store-download-logo-2 {
+            @extend .app-store-download-logo-1;
+            background-position: 0 -42px;
+        }
+    }
+}

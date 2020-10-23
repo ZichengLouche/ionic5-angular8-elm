@@ -1,0 +1,136 @@
+/* Andy 2020.2.20 16:32 ; */
+:host {
+  flex-grow: 1;
+}
+
+:host-context(body) {
+  background: #eee;
+}
+
+ion-toolbar {
+  color       : #666;
+  --background: transparent;
+  min-height  : auto;
+
+  ion-back-button {
+    --padding-start: 0px;
+    --color-hover  : blue;
+  }
+}
+
+ion-card {
+  box-shadow: 0px 1px 4px #bbb;
+
+  ion-item {
+    --inner-border-width: 0;
+    --border-width      : 0px 0px 1px 0px;
+    --padding-top       : 16px;
+    --padding-bottom    : 16px;
+
+    ion-thumbnail {
+      width       : 450px;
+      height      : 250px;
+      margin      : 0px;
+      margin-right: 16px;
+    }
+
+    ion-label {
+      align-self   : stretch;
+      margin-top   : 0px;
+      margin-bottom: 0px;
+
+      h2 {
+        font-size: 24px;
+      }
+
+      ion-button {
+        --background: #ff8000;
+        font-size   : 20px;
+        width       : 160px;
+        height      : 45px;
+        position    : absolute;
+        bottom      : 0px;
+      }
+    }
+  }
+
+  ion-segment {
+    align-items : center;
+    padding-left: 16px;
+    min-height  : 40px;
+
+    ion-segment-button {
+      flex-grow           : 0;
+      --color             : #333;
+      --color-checked     : white;
+      --background-checked: #3A3E4A;
+      --indicator-color   : #ffc53d;
+      --indicator-height  : 0px;
+
+      --border-radius: 5px;
+      min-height     : 0px;
+      height         : 30px;
+      min-width      : 0px;
+    }
+  }
+}
+
+.col-right {
+  min-width: 0;
+  flex-grow: 0.3;
+
+  ion-card-header {
+    display       : flex;
+    flex-direction: column;
+    align-items   : center;
+    border-bottom : 1px solid #eee;
+
+    ion-img {
+      height: 75px;
+      width : 75px;
+    }
+  }
+
+  ion-card-content {
+    padding-top: 16px;
+  }
+}
+
+ion-row ion-col {
+  padding: 0
+}
+
+.segment-scrollable::-webkit-scrollbar {
+  display: none;
+}
+
+ion-segment-button {
+  font-size   : 15px;
+  // color    : #222;
+}
+
+ion-segment-button.segment-button-checked {
+  font-weight: 700;
+}
+
+ion-segment.fixed {
+  position  : fixed;
+  top       : 44px;
+  z-index   : 1;
+  background: #ffffff;
+}
+
+.card-left {
+  h2 {
+    font-size    : 18px;
+    color        : #333;
+    margin-bottom: 10px;
+  }
+
+  p {
+    margin-bottom: 40px;
+  }
+}
+
+
+

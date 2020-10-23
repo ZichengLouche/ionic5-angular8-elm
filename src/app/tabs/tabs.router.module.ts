@@ -9,7 +9,7 @@ const routes: Routes = [
     path: '',
     component: TabsPage,
     children: [
-      { path: '', redirectTo: '/msite', pathMatch: 'full' },
+      { path: '', redirectTo: '/tabs/msite', pathMatch: 'full' },
       { path: 'msite', loadChildren: '../msite/msite.module#MsitePageModule' },
       { path: 'search', loadChildren: '../search/search.module#SearchPageModule' },
       { path: 'order', loadChildren: '../order/order.module#OrderPageModule' },
