@@ -104,20 +104,8 @@ ion-row ion-col {
   display: none;
 }
 
-ion-segment-button {
-  font-size   : 15px;
-  // color    : #222;
-}
-
 ion-segment-button.segment-button-checked {
   font-weight: 700;
-}
-
-ion-segment.fixed {
-  position  : fixed;
-  top       : 44px;
-  z-index   : 1;
-  background: #ffffff;
 }
 
 .card-left {

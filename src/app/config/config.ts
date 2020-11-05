@@ -36,6 +36,7 @@ export const Config = {
         GET_BANNER_LIST: host + '/assets/data/cloud-classroom/banner/banner.json',
         GET_COURSES: host + '/assets/data/cloud-classroom/course/course.json',
         GET_COURSE_INTRODUCTION: host + '/assets/data/cloud-classroom/course/course-introduction.json',
+        GET_COURSE_LEARN: host + '/assets/data/cloud-classroom/course/course-learn.json',
     },
     APIS: {
         GET_CITIES: proxyPrefix + '/v1/cities?type=${type}',

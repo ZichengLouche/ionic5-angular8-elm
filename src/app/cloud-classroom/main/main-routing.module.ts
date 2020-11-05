@@ -8,10 +8,10 @@ const routes: Routes = [
     path: '', component: MainPage,
     children: [
       { path: '', redirectTo: '/classroom/home', pathMatch: 'full' },
-      { path: 'home', loadChildren: '../cc-home/cc-home.module#CCHomePageModule' },
-      { path: 'course', loadChildren: '../course/course.module#CoursePageModule' },
-      { path: 'order', loadChildren: '../order/order.module#OrderPageModule' },
-      { path: 'profile', loadChildren: '../profile/profile.module#ProfilePageModule' }
+      { path: 'home', loadChildren: () => import('../cc-home/cc-home.module').then( m => m.CCHomePageModule) },
+      { path: 'course', loadChildren: () => import('../course/course.module').then( m => m.CoursePageModule) },
+      // { path: 'home', loadChildren: '../cc-home/cc-home.module#CCHomePageModule' },
+      // { path: 'course', loadChildren: '../course/course.module#CoursePageModule' },
     ]
   }
 ];

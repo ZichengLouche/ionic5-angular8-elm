@@ -1,9 +1,9 @@
-<ion-header>
+<ion-header [class.ion-hide]="onlyContent">
   <ion-toolbar class="toolbar-main">
     <ion-row class="raw-center-horizontal">
       <ion-col size-1="auto" class="xmt-font-size-26">
         <ion-icon name="book"></ion-icon>
-        <ion-label>迈瑞云课堂</ion-label>
+        <ion-label>阿尔法蜗牛云课堂</ion-label>
       </ion-col>
 
       <ion-col size="auto">
@@ -21,11 +21,11 @@
 <router-outlet></router-outlet>
 
 
-<ion-footer>
+<ion-footer [class.ion-hide]="onlyContent">
   <ion-toolbar class="toolbar-main">
     <ion-row class="raw-center-horizontal xmt-padding-vertical-30">
       <ion-col size-1="auto" class="">
-        <p class="mb10 lh-22"> 迈瑞云课堂 是XX公司（xx.com）旗下专注职业技能提升的在线学习平台。 </p>
+        <p class="mb10 lh-22"> 阿尔法蜗牛云课堂 是XX公司（xx.com）旗下专注职业技能提升的在线学习平台。 </p>
         <div class="foot_about">
           <a href="//study.1634.com/about/aboutus.htm#/about?aboutType=1" target="_blank" data-index="关于我们">关于我们</a>
           <a href="//study.1634.com/about/aboutus.htm#/about?aboutType=2" target="_blank" data-index="联系我们">联系我们</a>
@@ -36,7 +36,7 @@
         </div>
 
         <div class="mt15 color-gray-999">
-          ©1997-2020 网易公司 版权所有 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;粤B2-20090191-18
+          ©1997-2020 阿尔法蜗牛公司 版权所有 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;粤B2-20090191-18
           <span class="ml20"><a class="color-gray-999" href="https://beian.miit.gov.cn/#/Integrated/index" target="_blank">工业和信息化部备案管理系统网站</a></span>
         </div>
       </ion-col>

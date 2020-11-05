@@ -1,0 +1,86 @@
+<section class="">
+  <ion-row class="ion-nowrap">
+    <ion-col class="col-left">
+      <div class="">
+        <ion-img src="/assets/imgs/cloud-classroom/course-learn-logo.png" class="raw-center"></ion-img>
+        <ion-icon name="chevron-up-outline" szie="small"></ion-icon>
+        <ion-icon name="chevron-down-outline"></ion-icon>
+        <figure class="double-right-arrow df-center-single" [ngClass]="{'transform-rotate-180': !showSidebar}" (click)="toggleSidebar()">
+          <ion-img src="/assets/icon/double-right-arrow.svg"></ion-img>
+        </figure>
+      </div>
+    </ion-col>
+
+    <ion-col class="col-right" [class.ion-hide]="!showSidebar">
+      <ion-card>
+        <ion-item class="thumbnail-item">
+          <ion-thumbnail slot="end">
+            <img [src]="course.coverImage">
+          </ion-thumbnail>
+          <ion-label>
+            <h2 class="ellipsis">{{ course.courseName }}</h2>
+            <!-- <rating-star [rating]='5'></rating-star> -->
+            <ion-text>发布者：{{ course.lecturer?.lecturerName }}</ion-text>
+          </ion-label>
+        </ion-item>
+
+        <ion-segment scrollable mode="md" [(ngModel)]="segmentValue" id="segment-nav-bar" #segmentNavBar >
+          <ion-segment-button value="directory-list" >
+            <ion-item>
+              <ion-icon name="list-outline" class="mr5"></ion-icon>
+              <ion-label class="margin-0">目录</ion-label>
+            </ion-item>
+          </ion-segment-button>
+          <ion-segment-button value="lesson-summary" >
+            <ion-item>
+              <ion-icon name="create-outline" class="mr5"></ion-icon>
+              <ion-label class="margin-0">课程总结</ion-label>
+            </ion-item>
+          </ion-segment-button> 
+        </ion-segment>
+
+        <ion-list class="directory-list" *ngIf="segmentValue == 'directory-list'">
+          <ion-item-group *ngFor="let chapter of course?.courseChapters" class="position-relative">
+            <ion-item-divider>
+              <ion-label>章节</ion-label>
+              <ion-label> {{ chapter.chapterNumber }} </ion-label>
+              <ion-label> {{ chapter.chapterName }} </ion-label>
+            </ion-item-divider>
+            <div class="ion-item" *ngFor="let lesson of chapter.lessons" lines="none" [class.item-checked]="lesson == selectedItem" (click)="selectedItem = lesson">
+              <ion-label>课时{{ lesson.lessonNumber }}</ion-label>
+              <!-- <div></div> -->
+              <ion-label> {{ lesson.lessonName }} </ion-label>
+              <ion-label> 
+                <ion-text>
+                  {{ lesson.lessonDuration }} 
+                </ion-text>
+                <ion-icon name="play-circle-outline"></ion-icon>
+              </ion-label>
+
+              <div class="popover">
+                <p class="title j-title">课时{{ lesson.lessonNumber }}：{{ lesson.lessonName }}</p>
+                <p class="content j-content" >{{ lesson.lessonName }}</p>
+              </div>
+            </div>
+          </ion-item-group>
+        </ion-list>
+
+        <ion-list class="lesson-summary" *ngIf="segmentValue == 'lesson-summary'">
+          <ion-item>
+            <ion-textarea [(ngModel)]="selectedItem.lessonSummary" autoGrow="true" readonly></ion-textarea>
+          </ion-item>
+        </ion-list>
+        
+        <!-- <ion-card-header>
+          <ion-img [src]="course.lecturer?.lecturerImage" [alt]="course.lecturer?.lecturerName"></ion-img>
+          <ion-label>{{ course.lecturer?.lecturerName }}</ion-label>
+        </ion-card-header>
+        
+        <ion-card-content class="ion-padding-top">
+          {{ course.lecturer?.lecturerDescription }}
+        </ion-card-content> -->
+
+      </ion-card>
+    </ion-col>
+  </ion-row>
+</section>

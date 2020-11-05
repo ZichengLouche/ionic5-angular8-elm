@@ -1,0 +1,358 @@
+/* Andy 2020.2.20 16:32 ; */
+:host {
+  flex-grow : 1;
+  background: #68696E;
+  background: url(/assets/imgs/cloud-classroom/course-learn-bg.jpg) repeat 0 0;
+
+  section {
+    height: 100%;
+  }
+}
+
+ion-row {
+  height: 100%;
+
+  .col-left {
+    border-top   : 1px solid #666666;
+    border-bottom: 1px solid #626262;
+
+    &::before {
+      display         : block;
+      width           : 4px;
+      height          : 100%;
+      content         : "";
+      border-right    : 1px solid #76767a;
+      background-color: #333746;
+      position        : absolute;
+      left            : 139px;
+    }
+
+    &::after {
+      display         : block;
+      width           : 24px;
+      height          : 24px;
+      content         : ">>";
+      background-color: #A3A5A9;
+      position        : absolute;
+      right           : 0px;
+      top             : 12px;
+      color           : #626264;
+      font-size       : 18px;
+      letter-spacing  : -6px;
+      box-sizing      : border-box;
+      padding-left    : 2px;
+      line-height     : 23px;
+      transform       : rotate(180deg);
+      visibility      : hidden;
+    }
+
+    ion-icon {
+      color     : #BFC0C5;
+      font-size : 36px;
+      background: #4E4F50;
+      box-shadow: 0px 3px 5px #333;
+      width     : 60px;
+      height    : 32px;
+      cursor    : pointer;
+    }
+
+    ion-icon:nth-of-type(1) {
+      position: absolute;
+      left    : 112px;
+    }
+
+    ion-icon:nth-of-type(2) {
+      position  : absolute;
+      left      : 112px;
+      bottom    : 0px;
+      box-shadow: 0px -3px 5px #333;
+    }
+
+    .double-right-arrow {
+      width           : 24px;
+      height          : 24px;
+      background-color: #A3A5A9;
+      position        : absolute;
+      right           : 0px;
+      top             : 12px;
+      box-shadow      : -2px 2px 3px #333;
+      cursor          : pointer;
+      z-index         : 998;
+
+      ion-img {
+        width: 15px;
+      }
+    }
+  }
+
+  .col-right {
+    flex-basis: 320px;
+    flex-grow : 0;
+    min-width : 0px;
+    background: #abadb0;
+
+    ion-card-header {
+      display       : flex;
+      flex-direction: column;
+      align-items   : center;
+      border-bottom : 1px solid #eee;
+
+      ion-img {
+        height: 75px;
+        width : 75px;
+      }
+    }
+
+    ion-card-content {
+      padding-top: 16px;
+    }
+  }
+}
+
+ion-row ion-col {
+  padding: 0
+}
+
+.col-right ion-card {
+  box-shadow: 0px 1px 8px #333;
+  margin    : 0;
+
+  ion-item.thumbnail-item {
+    --inner-border-width: 0;
+    --border-width      : 0px 0px 0px 0px;
+    --padding-top       : 16px;
+    --padding-bottom    : 16px;
+    --background        : #abadb0;
+
+    ion-thumbnail {
+      width : 120px;
+      height: 66px;
+      margin: 0px;
+    }
+
+    ion-label {
+      align-self   : stretch;
+      margin-top   : 0px;
+      margin-bottom: 0px;
+      font-size    : 12px;
+      color        : #666;
+
+      h2 {
+        font-size: 15px;
+        color    : #333;
+      }
+    }
+  }
+
+  ion-segment {
+    align-items : center;
+    padding-left: 16px;
+    min-height  : 45px;
+    background  : #D2D5DA;
+
+    ion-segment-button {
+      flex-grow           : 0;
+      --color             : #666;
+      --color-checked     : #fff;
+      --background-checked: #999A9B;
+      --indicator-color   : #ffc53d;
+      --indicator-height  : 0px;
+      --padding-start     : 3px;
+      --padding-end       : 3px;
+      --padding-top       : 4px;
+      --padding-bottom    : 4px;
+      --border-radius     : 5px;
+      min-height          : 0px;
+      min-width           : 0px;
+      margin              : 0px 16px;
+
+      ion-item {
+        --background        : transparent;
+        --min-height        : 0px;
+        --inner-border-width: 0;
+        --padding-start     : 0px;
+        --inner-padding-end : 0px;
+        font-size           : 14px;
+        color               : inherit;
+
+        ion-icon {
+          margin-right: 3px;
+          font-size   : 20px;
+        }
+      }
+    }
+
+    ion-segment-button.segment-button-checked {
+      ion-icon {
+        color: #fff;
+      }
+    }
+  }
+}
+
+.col-right ion-list.directory-list {
+  background: #f5f7fa;
+  position  : relative;
+
+  &::before {
+    position   : absolute;
+    left       : 76px;
+    top        : 0;
+    height     : 100%;
+    display    : inline-block;
+    content    : "";
+    z-index    : 2;
+    border-left: solid 1px #d3d3d3;
+  }
+
+  ion-item-divider {
+    --background       : #f5f7fa;
+    font-size          : 14px;
+    color              : #666;
+    font-weight        : bolder;
+    border-bottom-width: 0;
+
+    ion-label:nth-of-type(2) {
+      width        : 25px;
+      height       : 25px;
+      line-height  : 25px;
+      border-radius: 50%;
+      text-align   : center;
+      border       : 1px solid #585B62;
+      margin-left  : 20px;
+      margin-right : 12px;
+      z-index      : 3;
+      background   : #f5f7fa;
+    }
+  }
+
+  /* Andy 2020.10.29 18:07 用div.ion-item模拟ion-item; */
+  div.ion-item {
+    display    : flex;
+    align-items: center;
+    padding    : 0px 16px;
+    position   : relative;
+
+    ion-label {
+      flex: 1 1 0%;
+    }
+  }
+
+  .ion-item {
+    --background: #f5f7fa;
+    font-size   : 12px;
+    color       : #999;
+    --min-height: 0px;
+    cursor      : pointer;
+    transition  : all 0.15s ease-out;
+
+    .popover {
+      display   : none;
+      position  : absolute;
+      top       : -61px;
+      z-index   : 99999;
+      padding   : 10px;
+      background: #F1F2F3;
+      color     : #666;
+      box-shadow: 0px 0px 6px #999;
+      width     : 90%;
+      transform : scale(0.9);
+
+      &::before {
+        display         : inline-block;
+        content         : "";
+        border          : 8px solid transparent;
+        border-top-color: #fff;
+        position        : absolute;
+        bottom          : -16px;
+        left            : 16px;
+      }
+
+      p:nth-of-type(1) {
+        margin-bottom: 5px;
+        font-weight  : bold;
+        font-size    : 14px;
+      }
+    }
+
+    &:hover,
+    &.item-checked {
+      background: #3a3e4a;
+      color     : #fff;
+    }
+
+    &:hover {
+      .popover {
+        display  : block;
+        transform: scale(1);
+      }
+    }
+
+    ion-label {
+      margin: 8px 0px;
+    }
+
+    ion-label:nth-of-type(1) {
+      flex: 0 1 auto;
+
+      &::after {
+        display       : inline-block;
+        content       : "";
+        width         : 14px;
+        height        : 14px;
+        border        : 1px solid #A2A5AC;
+        border-radius : 50%;
+        vertical-align: bottom;
+        margin-left   : 21px;
+        margin-right  : 8px;
+        position      : relative;
+        z-index       : 300;
+        background    : #f5f7fa;
+      }
+    }
+
+    ion-label:nth-last-of-type(1) {
+      flex: 0 1 auto;
+
+      ion-icon {
+        font-size     : 16px;
+        vertical-align: bottom;
+      }
+
+      ion-text {
+        color: #bababa;
+      }
+    }
+
+  }
+}
+
+.col-right ion-list.lesson-summary {
+  ion-item {
+    font-size             : 14px;
+    color                 : #666;
+    --border-width        : 0 0 0 0;
+    --highlight-background: transparent;
+    --padding-start       : 10px;
+    --inner-padding-end   : 10px;
+
+    ion-textarea {
+      border       : 1px solid #DFDFDF;
+      box-shadow   : inset 1px 1px 2px #DFDFDF;
+      padding-left : 10px;
+      padding-right: 10px;
+      margin-bottom: 10px;
+    }
+  }
+
+}
+
+
+
+.segment-scrollable::-webkit-scrollbar {
+  display: none;
+}
+
+ion-segment-button.segment-button-checked {
+  font-weight: 700;
+}

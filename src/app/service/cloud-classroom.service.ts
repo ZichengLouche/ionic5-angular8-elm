@@ -34,6 +34,14 @@ export class CloudClassroomService {
         );
     }
 
+    getCourseLearn(): Observable<any> {
+        return this.http.get(Config.SERVICES.GET_COURSE_LEARN).pipe(
+            map((res: any) => {
+                return res;
+            })
+        );
+    }
+
     getUsercases(): Observable<any> {
         return this.http.get(Config.SERVICES.USERCASES_URL).pipe(
             map((res: any) => {
