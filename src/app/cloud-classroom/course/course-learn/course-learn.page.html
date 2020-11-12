@@ -2,6 +2,7 @@
   <ion-row class="ion-nowrap">
     <ion-col class="col-left">
       <div class="">
+        <ion-back-button defaultHref="/classroom/course/introduction/{{courseId}}" text="返回" icon="chevron-back-outline" color="medium" *ngIf="true"></ion-back-button>
         <ion-img src="/assets/imgs/cloud-classroom/course-learn-logo.png" class="raw-center"></ion-img>
         <ion-icon name="chevron-up-outline" szie="small"></ion-icon>
         <ion-icon name="chevron-down-outline"></ion-icon>
@@ -9,6 +10,8 @@
           <ion-img src="/assets/icon/double-right-arrow.svg"></ion-img>
         </figure>
       </div>
+      <!-- <ion-nav root="CourseLessonComponent" #ionSubNav [rootParams]="selectedItem"></ion-nav>   -->
+      <ion-nav [root]="rootPage" #ionSubNav [rootParams]="{lesson: selectedItem}"></ion-nav>
     </ion-col>
 
     <ion-col class="col-right" [class.ion-hide]="!showSidebar">

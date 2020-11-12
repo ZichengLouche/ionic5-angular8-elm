@@ -15,7 +15,7 @@
       <ion-label>
         <h2>{{ course.courseName }}</h2>
         <!-- <rating-star [rating]='5'></rating-star> -->
-        <ion-button fill="solid">立即参加</ion-button>
+        <ion-button fill="solid" [routerLink]="['/classroom/course/learn', course.courseId]">立即参加</ion-button>
         <ion-button fill="outline" class="dn">免费试看</ion-button>
       </ion-label>
     </ion-item>

@@ -10,8 +10,6 @@ const routes: Routes = [
       { path: '', redirectTo: '/classroom/home', pathMatch: 'full' },
       { path: 'home', loadChildren: () => import('../cc-home/cc-home.module').then( m => m.CCHomePageModule) },
       { path: 'course', loadChildren: () => import('../course/course.module').then( m => m.CoursePageModule) },
-      // { path: 'home', loadChildren: '../cc-home/cc-home.module#CCHomePageModule' },
-      // { path: 'course', loadChildren: '../course/course.module#CoursePageModule' },
     ]
   }
 ];

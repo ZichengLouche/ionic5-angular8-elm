@@ -1,9 +1,10 @@
 import { Component, ViewChild, ElementRef, ComponentRef, AfterViewInit, AfterViewChecked, Renderer } from '@angular/core';
-import { IonContent, IonSegment, IonToolbar } from '@ionic/angular';
+import { IonContent, IonSegment, IonToolbar, IonNav, NavParams } from '@ionic/angular';
 import { CloudClassroomService } from 'src/app/service/cloud-classroom.service';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { ActivatedRoute, Router, ParamMap } from '@angular/router';
+import { CourseLessonComponent } from './course-lesson/course-lesson.component';
 
 @Component({
   selector: 'app-course-learn',
@@ -15,6 +16,10 @@ export class CourseLearnPage {
   selectedItem: any = {};
   segmentValue = "directory-list";
   showSidebar: boolean = true;
+  @ViewChild("ionSubNav", {static: true}) nav: IonNav;
+  rootPage = CourseLessonComponent;
+  courseId: any;
+  lessonId: any;
 
   constructor(private ccService: CloudClassroomService, private route: ActivatedRoute, private router: Router) {
   }
@@ -67,22 +72,24 @@ export class CourseLearnPage {
     //   error => console.log(error)
     // );
 
-    // this.route.paramMap.subscribe(
-    //   data => {
-    //     console.log(`ActivatedRoute.paramMap: ${data} - ${JSON.stringify(data)}`);
-    //   },
-    //   error => console.log(error)
-    // )
-
     // console.log("router.routerState.snapshot.url:" + this.router.routerState.snapshot.url);
     // console.log(this.route.params);
 
-
+    this.route.paramMap.subscribe(
+      params => {
+        this.courseId = params.get("courseId");
+        // this.lessonId = params.get("lessonId");
+      },
+      error => console.log(error)
+    );
 
     this.ccService.getCourseLearn().subscribe(
       data => {
-        this.course = data;
-        this.selectedItem = this.course.courseChapters[0].lessons[0];
+        setTimeout(() => {
+          this.course = data;
+          this.selectedItem = this.course.courseChapters[0].lessons[0];
+          this.nav.setRoot(this.rootPage, { lesson: this.selectedItem }); 
+        }, 5000);
       },
       error => console.log(error)
     );

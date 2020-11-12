@@ -1,0 +1,22 @@
+<ion-card>
+  <ion-list lines="none">
+    <ion-list-header>
+      <ion-label>Resources</ion-label>
+    </ion-list-header>
+    <ion-item button="true" detail="false">
+      <ion-icon slot="start" color="medium" name="film-outline"></ion-icon>
+      <ion-label>课程视频</ion-label>
+      <ion-button fill="outline" slot="end" (click)="goForward()">点击查看</ion-button>
+    </ion-item>
+    <ion-item button="true" detail="false">
+      <ion-icon slot="start" color="red" src="/assets/icon/PDF-1.svg"></ion-icon>
+      <ion-label>PDF课件</ion-label>
+      <ion-button fill="outline" slot="end" (click)="goForward()">点击查看</ion-button>
+    </ion-item>
+    <ion-item button="true" detail="false">
+      <ion-icon slot="start" color="medium" name="image-outline"></ion-icon>
+      <ion-label>课件图片</ion-label>
+      <ion-button fill="outline" slot="end" (click)="goForward()">点击查看</ion-button>
+    </ion-item>
+  </ion-list>
+</ion-card>

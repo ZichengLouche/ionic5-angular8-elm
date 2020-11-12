@@ -13,8 +13,6 @@ import { FormsModule } from '@angular/forms';
       {
         path: '',
         children: [
-          // { path: 'introduction', loadChildren: './course-introduction/course-introduction.module#CourseIntroductionPageModule' },
-          // { path: 'learn', loadChildren: './course-learn/course-learn.module#CourseLearnPageModule' },
           { path: 'introduction', loadChildren: () => import('./course-introduction/course-introduction.module').then( m => m.CourseIntroductionPageModule) },
           { path: 'learn', loadChildren: () => import('./course-learn/course-learn.module').then( m => m.CourseLearnPageModule) },
         ]

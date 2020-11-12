@@ -1,0 +1,20 @@
+/* Andy 2020.11.08 11:09 ; */
+:host {
+    top  : 95px;
+    left : 170px;
+    right: 30px;
+
+    ion-card {
+        box-shadow: 0 1px 5px #303035;
+
+        ion-list {
+            align-self: stretch;
+
+            ion-button {
+                --border-width: 1px;
+                --border-color: #4AAF4F;
+                --color       : #4AAF4F;
+            }
+        }
+    }
+}

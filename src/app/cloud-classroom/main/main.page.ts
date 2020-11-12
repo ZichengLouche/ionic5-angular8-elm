@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute, Router } from '@angular/router';
+import { ActivatedRoute, Router, NavigationEnd, NavigationStart } from '@angular/router';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -14,23 +14,33 @@ export class MainPage implements OnInit {
   constructor(private route: ActivatedRoute, private router: Router) { }
 
   ngOnInit() {
-    // const id: Observable<string> = this.route.params.pipe(map(p => p.id));
-    // const url: Observable<string> = this.route.url.pipe(
-    //   map(segments => {
-    //     console.log(`ActivatedRoute.url: ${segments} - ${ typeof segments } - ${JSON.stringify(segments)}`);
-    //     return segments.join('');
-    //   })
-    // );
-    // url.subscribe(
-    //   data => {
-    //     console.log(`ActivatedRoute.url: ${data}`);
-    //   },
-    //   error => console.log(error)
-    // );
-    console.log("router.routerState.snapshot.url:" + this.router.routerState.snapshot.url);
-    if(this.router.routerState.snapshot.url.search(/\/learn/) != -1) {
-      this.onlyContent = true;
-    }
+    const url: Observable<string> = this.route.url.pipe(
+      map(segments => {
+        console.log(`ActivatedRoute.url: ${segments} - ${typeof segments} - ${JSON.stringify(segments)}`);
+        return segments.join('');
+      })
+    );
+    url.subscribe(
+      data => {
+        console.log(`ActivatedRoute.url: ${data}`);
+      },
+      error => console.log(error)
+    );
+
+    this.router.events.subscribe((event) => {
+      if (event instanceof NavigationEnd) {
+        if(event.url.search(/\/learn/) != -1) {
+          this.onlyContent = true;
+
+        } else {
+          this.onlyContent = false;
+        }
+
+      } else if(event instanceof NavigationStart) {
+        console.debug(event);
+      }
+    });
+
   }
 
 }

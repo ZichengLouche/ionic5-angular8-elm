@@ -14,6 +14,7 @@
             "lessons": [
                 {
                     "lessonNumber": "1",
+                    "lessonId": "1049608891",
                     "lessonName": "课程简介",
                     "lessonDuration": "07:48",
                     "lessonMedia": {
@@ -28,6 +29,7 @@
                 },
                 {
                     "lessonNumber": "2",
+                    "lessonId": "1049596136",
                     "lessonName": "字符实体和注释",
                     "lessonDuration": "09:21",
                     "lessonMedia": {
@@ -48,6 +50,7 @@
             "lessons": [
                 {
                     "lessonNumber": "3",
+                    "lessonId": "1049595158",
                     "lessonName": "css的使用方式",
                     "lessonDuration": "10:20",
                     "lessonMedia": {

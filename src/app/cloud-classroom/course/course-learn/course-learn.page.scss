@@ -9,6 +9,25 @@
   }
 }
 
+ion-back-button {
+  position        : absolute;
+  top             : 13px;
+  left            : 0px;
+  z-index         : 101;
+  font-size       : 12px;
+  --min-height    : 30px;
+  --ion-color-base: #484848 !important;
+  background      : #989aa2;
+  box-shadow      : 0px 1px 8px #333;
+  --icon-font-size: 16px;
+}
+
+ion-nav {
+  z-index: 101;
+  top    : 43px;
+  overflow: visible;
+}
+
 ion-row {
   height: 100%;
 
