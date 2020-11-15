@@ -20,6 +20,7 @@ export class CourseLearnPage {
   rootPage = CourseLessonComponent;
   courseId: any;
   lessonId: any;
+  showBackButton: boolean = true;
 
   constructor(private ccService: CloudClassroomService, private route: ActivatedRoute, private router: Router) {
   }
@@ -88,8 +89,8 @@ export class CourseLearnPage {
         setTimeout(() => {
           this.course = data;
           this.selectedItem = this.course.courseChapters[0].lessons[0];
-          this.nav.setRoot(this.rootPage, { lesson: this.selectedItem }); 
-        }, 5000);
+          this.nav.setRoot(this.rootPage, { lesson: this.selectedItem, toggleBackButton: this.toggleBackButton }); 
+        }, 100);
       },
       error => console.log(error)
     );
@@ -97,6 +98,11 @@ export class CourseLearnPage {
 
   toggleSidebar() {
     this.showSidebar = !this.showSidebar;
+  }
+
+  toggleBackButton = () => {
+    this.showBackButton = !this.showBackButton;
+    console.log(`toggleBackButton:${JSON.stringify(this.segmentValue)}`);
   }
 
   segmentNavigateByScroll(value: any) {

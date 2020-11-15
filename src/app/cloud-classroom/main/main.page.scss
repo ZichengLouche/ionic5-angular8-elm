@@ -1,6 +1,7 @@
 /** Andy 2020.10.13 8:50 **/
 :host {
-    overflow: auto;
+    overflow : auto;
+    min-width: 800px;
 }
 
 ion-content {

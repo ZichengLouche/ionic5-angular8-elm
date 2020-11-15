@@ -42,15 +42,15 @@ export class CloudClassroomService {
         );
     }
 
-    getUsercases(): Observable<any> {
-        return this.http.get(Config.SERVICES.USERCASES_URL).pipe(
+    getHomework(): Observable<any> {
+        return this.http.get(Config.SERVICES.GET_HOMEWORK).pipe(
             map((res: any) => {
-                return res.usercaseList;
+                return res;
             })
         );
     }
 
-    getOurAdvantages(): any {
+    uploadHomework(): any {
         return this.http.get(Config.SERVICES.OURS_URL).pipe(
             map((res: any) => {
                 return res.advantageList;

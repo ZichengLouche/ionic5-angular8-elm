@@ -6,17 +6,24 @@
     <ion-item button="true" detail="false">
       <ion-icon slot="start" color="medium" name="film-outline"></ion-icon>
       <ion-label>课程视频</ion-label>
-      <ion-button fill="outline" slot="end" (click)="goForward()">点击查看</ion-button>
+      <ion-button fill="outline" slot="end" (click)="goForward('lesson-video')">点击查看</ion-button>
     </ion-item>
     <ion-item button="true" detail="false">
       <ion-icon slot="start" color="red" src="/assets/icon/PDF-1.svg"></ion-icon>
       <ion-label>PDF课件</ion-label>
-      <ion-button fill="outline" slot="end" (click)="goForward()">点击查看</ion-button>
+      <!-- <a [href]="lesson?.lessonMedia?.pdf" target="_blank" type="application/pdf">点击查看</a>
+      <ion-button fill="outline" slot="end" [href]="lesson?.lessonMedia?.pdf" target="_blank">点击查看</ion-button> -->
+      <ion-button fill="outline" slot="end" (click)="goForward('lesson-courseware')">点击查看</ion-button>
     </ion-item>
     <ion-item button="true" detail="false">
       <ion-icon slot="start" color="medium" name="image-outline"></ion-icon>
       <ion-label>课件图片</ion-label>
-      <ion-button fill="outline" slot="end" (click)="goForward()">点击查看</ion-button>
+      <ion-button fill="outline" slot="end" (click)="goForward('lesson-image')">点击查看</ion-button>
+    </ion-item>
+    <ion-item button="true" detail="false">
+      <ion-icon slot="start" color="medium" name="film-outline"></ion-icon>
+      <ion-label>课时作业</ion-label>
+      <ion-button fill="outline" slot="end" (click)="goForward('lesson-homework')">点击查看</ion-button>
     </ion-item>
   </ion-list>
 </ion-card>

@@ -9,11 +9,18 @@
 
         ion-list {
             align-self: stretch;
+            background: #D2D5DA;
 
-            ion-button {
-                --border-width: 1px;
-                --border-color: #4AAF4F;
-                --color       : #4AAF4F;
+            ion-item {
+                &:hover {
+                    cursor: default !important;
+                }
+
+                ion-button {
+                    --border-width: 1px;
+                    --border-color: #4AAF4F;
+                    --color       : #4AAF4F;
+                }
             }
         }
     }

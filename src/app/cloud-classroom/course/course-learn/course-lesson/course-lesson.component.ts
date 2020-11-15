@@ -9,24 +9,16 @@ import { CourseLessonDetailComponent } from '../course-lesson-detail/course-less
 })
 export class CourseLessonComponent implements OnInit {
   lesson: any = {};
-  nextPage = CourseLessonDetailComponent;
+  toggleBackButton: Function;
+  nextNavPage = CourseLessonDetailComponent;
 
   constructor(private nav: IonNav, private navParams: NavParams) { }
 
-  ngOnInit() {}
-
-  goForward() {
-    this.nav.push(this.nextPage, { lesson: this.lesson });
+  ngOnInit() {
+    // this.toggleBackButton();
   }
 
-  canGoBack() {
-    this.nav.canGoBack().then((res) => {
-      console.log(`CourseLessonComponent nav canGoBack -> ${res}`);
-    });
-
-    this.nav.getByIndex(0).then((res) => {
-      console.log(`CourseLessonComponent nav getByIndex -> ${res}`);
-    });
+  goForward(segmentValue) {
+    this.nav.push(this.nextNavPage, { lesson: this.lesson, toggleBackButton: this.toggleBackButton, segmentValue: segmentValue });
   }
-
 }

@@ -5,10 +5,16 @@
     overflow: visible;
 
     section {
-        height: 100%;
+        height         : 100%;
+        display        : flex;
+        justify-content: center;
+
+        ion-card {
+            flex: 1;
+        }
     }
 
-    ion-card {
+    ion-card.lesson-video {
         background: #000;
         box-shadow: 0 1px 5px #303035;
         height    : 92%;
@@ -19,7 +25,90 @@
         }
     }
 
+    ion-card.lesson-image {
+        background: #D2D5DA;
+        box-shadow: 0 1px 5px #303035;
+        max-height: 92%;
+        overflow  : auto;
+
+        h2 {
+            font-size    : 18px;
+            color        : #333;
+            margin-bottom: 16px;
+        }
+
+        &::-webkit-scrollbar {
+            // background: #D2D5DA;
+            // border-radius   : 4px;
+            // width: 12px;
+        }
+    }
+
+    ion-card.lesson-courseware {
+        background: #525659;
+        box-shadow: 0 1px 5px #525659;
+        height    : 92%;
+
+        ion-chip {
+            display        : flex;
+            justify-content: center;
+            background     : #323639;
+            height         : 50px;
+            margin         : 0px;
+            margin-bottom  : 16px;
+            border-radius  : 0;
+            cursor         : default;
+
+            ion-label {
+                color: #fff;
+
+                ion-input:nth-child(1) {
+                    display         : inline-flex;
+                    background      : #000;
+                    --padding-top   : 3px;
+                    --padding-bottom: 3px;
+                    width           : 25px;
+                }
+            }
+
+            ion-button {
+                --background: #F2F2F2;
+                color       : #858585;
+            }
+        }
+    }
+
+    ion-card.lesson-homework {
+        box-shadow: 0 1px 5px #303035;
+        max-height: 92%;
+        max-width : 80%;
+        flex      : 1;
+        align-self: flex-start;
+
+        ion-list {
+            background: #D2D5DA;
+
+            ion-item {
+                &:hover {
+                    cursor      : default !important;
+                    --background: #F5F5F5;
+                }
+
+                ion-button {
+                    --border-width: 1px;
+                }
+            }
+        }
+
+        ion-thumbnail {
+            overflow: hidden;
+            width   : 80px;
+            height  : 80px;
+        }
+    }
+
 }
+
 
 ion-nav-link {
     position: absolute;
@@ -34,4 +123,51 @@ ion-nav-link {
         --ion-color-contrast: #484848 !important;
         margin              : 0;
     }
+}
+
+
+
+.dialog-container ::-webkit-input-placeholder {
+    /* WebKit browsers */
+    color      : #979797;
+    font-family: 'Helvetica Neue';
+    font-size  : 12px;
+}
+
+.dialog-container ::-moz-placeholder {
+    /* Mozilla Firefox 19+ */
+    color      : #979797;
+    font-family: 'Helvetica Neue';
+    font-size  : 12px;
+}
+
+.dialog-container :-moz-placeholder {
+    /* Mozilla Firefox 4 to 18 */
+    color      : #979797;
+    font-family: 'Helvetica Neue';
+    font-size  : 12px;
+}
+
+.dialog-container :-ms-input-placeholder {
+    /* Internet Explorer 10+ */
+    color      : #979797;
+    font-family: 'Helvetica Neue';
+    font-size  : 12px;
+}
+
+::-webkit-file-upload-button {
+    padding    : 0px 20px;
+    line-height: 45px;
+    border     : 2px solid #A8216E;
+    background : transparent;
+    color      : #A8216E;
+}
+
+label[for="file-upload"] {
+    background : transparent;
+    width      : 100px;
+    text-align : center;
+    line-height: 42px;
+    height     : 45px;
+    cursor     : pointer;
 }

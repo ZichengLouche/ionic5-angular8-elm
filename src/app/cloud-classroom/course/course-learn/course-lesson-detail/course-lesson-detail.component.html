@@ -1,12 +1,11 @@
-
 <!-- <ion-header>
   
 </ion-header> -->
 
 <section>
-<!-- <ion-content> -->
+  <!-- <ion-content> -->
   <ion-nav-link router-direction="back">
-    <ion-button expand="block" color="medium">
+    <ion-button expand="block" color="medium" (click)="toggleBackButton()">
       <ion-icon name="chevron-back-outline" slot="start"></ion-icon>返回
     </ion-button>
   </ion-nav-link>
@@ -14,13 +13,72 @@
     <ion-title>Header</ion-title>
   </ion-toolbar> -->
 
-  <ion-card>
+  <ion-card class="lesson-video" *ngIf="segmentValue == 'lesson-video'">
     <video controls id="video1">
-      <source [src]="lesson.lessonMedia?.video" type="video/mp4" media="screen and (min-width:320px)">
-      您的浏览器不支持 video 标签。
+      <source [src]="lesson?.lessonMedia?.video" type="video/mp4" media="screen and (min-width:320px)"> 您的浏览器不支持video标签。
     </video>
   </ion-card>
-<!-- </ion-content> -->
+
+  <ion-card class="lesson-image ion-padding" *ngIf="segmentValue == 'lesson-image'">
+    <h2>课件图片</h2>
+    <ion-img *ngFor="let imageURL of lesson?.lessonMedia?.picture; let last = last;" src="{{ imageURL }}"
+      alt="{{ imageURL }}" [class.mb10]="!last"> {{last || 'xmt'}} </ion-img>
+  </ion-card>
+
+  <ion-card class="lesson-courseware ion-no-padding" *ngIf="segmentValue == 'lesson-courseware'">
+    <ion-chip *ngIf="isLoaded">
+      <ion-button class="mr20" (click)="prevPage()" [disabled]="page <= 1">Prev</ion-button>
+      <ion-label>
+        <ion-input [autofocus]="true" [(ngModel)]="page" #ionInput (ionChange)="inputChange()"></ion-input> /
+        <ion-text class="ml5">{{ totalPages }}</ion-text>
+      </ion-label>
+      <ion-button class="ml20" (click)="nextPage()" [disabled]="page >= totalPages">Next</ion-button>
+    </ion-chip>
+
+    <pdf-viewer class="ion-padding-bottom" [src]="lesson?.lessonMedia?.pdf" [show-all]="false" [page]="page"
+      [render-text]="true" (after-load-complete)="afterLoadComplete($event)" style1="display: block;"></pdf-viewer>
+  </ion-card>
+
+  <ion-card class="lesson-homework" *ngIf="segmentValue == 'lesson-homework'">
+    <ion-list>
+      <ion-item-group>
+        <ion-list-header>
+          <ion-label>作业上传</ion-label>
+        </ion-list-header>
+        <ion-item>
+          <ion-input type="file"></ion-input>
+          <!-- <div class="df" style="flex:1;">
+
+            <input type="text" placeholder="File upload" ng-model1="$ctrl.meplFilesNames" disabled id="output"
+              value="请上传文件" class="input-border" style="margin-right: 30px; flex: auto; " />
+
+            <label for="file-upload" class="button-upload" ng-class="{'filter-gc':$ctrl.pmrNumber}"
+              ng-click="$ctrl.isUploadLocalFile($event);">Browse</label>
+            <input type="file" id="file-upload" ng-model="$ctrl.meplFiles" required ngf-max-size="200MB" accept=".txt"
+              multiple class="dn1" style="width:100px;" ng-change="$ctrl.doCheck()"
+              onchange="angular.element(this).scope().$ctrl.fileToUpload(this)" ng-click="$ctrl.doCheck()">
+          </div> -->
+        </ion-item>
+      </ion-item-group>
+
+      <ion-item-group>
+        <ion-list-header>课时作业</ion-list-header>
+        <ion-item *ngFor="let homework of courseHomework.homeworkList">
+          <ion-thumbnail slot="start">
+            <video controls id="video1">
+              <source [src]="homework.source" type="video/mp4" media="screen and (min-width:320px)">
+            </video>
+          </ion-thumbnail>
+          <ion-label>
+            <h2 class="fs14">作业上传者：{{ homework.uploader }}</h2>
+            <p>作业上传时间：{{ homework.uploadTime }}</p>
+          </ion-label>
+          <ion-button fill="outline" slot="end" (click)="goForward('lesson-video')">查看作业视频</ion-button>
+        </ion-item>
+      </ion-item-group>
+    </ion-list>
+  </ion-card>
+  <!-- </ion-content> -->
 
 
 </section>
